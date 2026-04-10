@@ -1,26 +1,220 @@
 @import "tailwindcss";
 
+/* ============================================================
+   ACCESSIBLE COMPUTING — Design System
+   WCAG 2.2 AAA Compliant Color Palette
+   ============================================================ */
+
 :root {
+  /* Core palette — light mode */
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #0a0a0a;
+  --primary: #003d80;
+  --primary-light: #0055b3;
+  --accent: #c41400;
+  --accent-light: #e01800;
+  --muted: #f5f5f5;
+  --muted-foreground: #525252;
+  --border: #e0e0e0;
+  --card: #ffffff;
+  --card-foreground: #0a0a0a;
+  --ring: #003d80;
+
+  /* Gradient stops */
+  --gradient-start: #003d80;
+  --gradient-end: #c41400;
+
+  /* Section backgrounds */
+  --section-alt: #f8f8f8;
+}
+
+[data-theme="dark"],
+.dark {
+  --background: #000000;
+  --foreground: #f5f5f5;
+  --primary: #00d4ff;
+  --primary-light: #33ddff;
+  --accent: #ffdb00;
+  --accent-light: #ffe433;
+  --muted: #111111;
+  --muted-foreground: #a3a3a3;
+  --border: #262626;
+  --card: #0a0a0a;
+  --card-foreground: #f5f5f5;
+  --ring: #00d4ff;
+
+  --gradient-start: #00d4ff;
+  --gradient-end: #ffdb00;
+
+  --section-alt: #0a0a0a;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-light: var(--primary-light);
+  --color-accent: var(--accent);
+  --color-accent-light: var(--accent-light);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-ring: var(--ring);
+  --color-gradient-start: var(--gradient-start);
+  --color-gradient-end: var(--gradient-end);
+  --color-section-alt: var(--section-alt);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-display: var(--font-display-family);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* ============================================================
+   Base styles
+   ============================================================ */
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ============================================================
+   Focus styles — AAA compliant
+   ============================================================ */
+
+*:focus-visible {
+  outline: 3px solid var(--ring);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ============================================================
+   Skip link
+   ============================================================ */
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  z-index: 9999;
+  padding: 1rem 1.5rem;
+  background: var(--primary);
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 1rem;
+  text-decoration: none;
+  border-radius: 0 0 0.5rem 0;
+}
+
+.skip-link:focus {
+  left: 0;
+  top: 0;
+  width: auto;
+  height: auto;
+  overflow: visible;
+}
+
+/* ============================================================
+   Gradient text utility
+   ============================================================ */
+
+.gradient-text {
+  background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ============================================================
+   Marquee
+   ============================================================ */
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee {
+    animation: none;
+  }
+}
+
+/* ============================================================
+   Scroll progress bar
+   ============================================================ */
+
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
+  z-index: 9999;
+  transform-origin: left;
+}
+
+/* ============================================================
+   Section number watermarks
+   ============================================================ */
+
+.section-number {
+  position: absolute;
+  top: -2rem;
+  right: 2rem;
+  font-size: clamp(6rem, 15vw, 12rem);
+  font-weight: 900;
+  opacity: 0.03;
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* ============================================================
+   Selection
+   ============================================================ */
+
+::selection {
+  background: var(--primary);
+  color: #ffffff;
+}
+
+.dark ::selection {
+  background: var(--primary);
+  color: #000000;
 }

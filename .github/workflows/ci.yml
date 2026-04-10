@@ -1,0 +1,44 @@
+name: CI
+
+on:
+  push:
+    branches-ignore: []
+  pull_request:
+    branches: [master]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run type-check
+      - run: npm run lint
+      - run: npm test
+      - run: npm run build
+
+  auto-pr:
+    needs: build-and-test
+    if: github.event_name == 'push' && github.ref != 'refs/heads/master'
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    permissions:
+      pull-requests: write
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Create and auto-merge PR
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          SOURCE="${GITHUB_REF#refs/heads/}"
+          EXISTING=$(gh pr list --head "$SOURCE" --state open --json number -q '.[0].number' 2>/dev/null || true)
+          if [ -z "$EXISTING" ]; then
+            gh pr create --title "Merge ${SOURCE}" --body "Auto-PR from CI" --head "$SOURCE" --base master
+          fi
+          PR=$(gh pr list --head "$SOURCE" --state open --json number -q '.[0].number')
+          [ -n "$PR" ] && gh pr merge "$PR" --squash --auto
