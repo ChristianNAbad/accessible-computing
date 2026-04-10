@@ -1,3 +1,4 @@
+import React from "react";
 import "@testing-library/jest-dom/vitest";
 import { vi } from "vitest";
 
@@ -19,8 +20,7 @@ vi.mock("framer-motion", () => {
         for (const [k, v] of Object.entries(props)) {
           if (!MOTION_PROPS.has(k)) filtered[k] = v;
         }
-        const El = prop;
-        return <El {...filtered}>{children}</El>;
+        return React.createElement(prop, filtered, children);
       };
       MotionComponent.displayName = `motion.${prop}`;
       return MotionComponent;
