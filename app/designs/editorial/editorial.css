@@ -1,0 +1,125 @@
+/* ============================================================
+   CONCEPT 1 — THE EDITORIAL
+   "Accessibility as craft." Ink on paper at AAA contrast.
+   Fraunces display serif · Newsreader body · mono details.
+   All text pairs ≥ 7:1 (WCAG 2.2 AAA), both themes.
+   ============================================================ */
+
+.v-editorial {
+  --background: #f7f1e5;
+  --foreground: #1f1a12;
+  --primary: #7a2116;
+  --primary-light: #93321f;
+  --accent: #7a2116;
+  --accent-light: #93321f;
+  --muted: #efe7d6;
+  --muted-foreground: #4c4432;
+  --border: #d9cdb4;
+  --card: #fdfaf3;
+  --ring: #7a2116;
+  --gradient-start: #7a2116;
+  --gradient-end: #7a2116;
+  --section-alt: #f2eadb;
+
+  font-family: var(--font-newsreader), Georgia, "Times New Roman", serif;
+  font-optical-sizing: auto;
+  /* clip (not hidden): keeps the sticky nav working while containing
+     the ±40px scroll-reveal entrance offsets on narrow viewports */
+  overflow-x: clip;
+}
+
+.dark .v-editorial {
+  --background: #16120c;
+  --foreground: #efe6d4;
+  --primary: #dfae52;
+  --primary-light: #e8c078;
+  --accent: #dfae52;
+  --accent-light: #e8c078;
+  --muted: #211b13;
+  --muted-foreground: #b5a88d;
+  --border: #3d3527;
+  --card: #1d1710;
+  --ring: #dfae52;
+  --gradient-start: #dfae52;
+  --gradient-end: #dfae52;
+  --section-alt: #1a150e;
+}
+
+/* Display face */
+.ed-display {
+  font-family: var(--font-fraunces), Georgia, serif;
+  font-optical-sizing: auto;
+}
+
+/* Fine print rules */
+.ed-rule {
+  border-top: 1px solid var(--foreground);
+}
+
+.ed-double-rule {
+  border-top: 4px double var(--foreground);
+}
+
+.ed-hairline {
+  border-top: 1px solid var(--border);
+}
+
+/* Drop cap for long-form copy */
+.ed-dropcap::first-letter {
+  font-family: var(--font-fraunces), Georgia, serif;
+  float: left;
+  font-size: 3.4em;
+  line-height: 0.8;
+  padding-right: 0.12em;
+  padding-top: 0.06em;
+  font-weight: 600;
+  color: var(--primary);
+}
+
+/* Paper grain — decorative, ~4% opacity, no contrast impact */
+.ed-grain {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Leader dots for the table-of-contents services list */
+.ed-leader {
+  flex: 1 1 2rem;
+  min-width: 2rem;
+  border-bottom: 2px dotted var(--border);
+  transform: translateY(-0.4em);
+}
+
+/* Underline-only inputs, correspondence-card style */
+.v-editorial .ed-input {
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--foreground);
+  border-radius: 0;
+  padding: 0.65rem 0.1rem;
+  width: 100%;
+  font-family: inherit;
+  font-size: 1rem;
+  color: var(--foreground);
+  transition: border-color 0.2s ease;
+}
+
+.v-editorial .ed-input:focus {
+  border-bottom-color: var(--primary);
+  outline: 3px solid var(--ring);
+  outline-offset: 4px;
+}
+
+/* Oversized quotation mark */
+.ed-quote-mark {
+  font-family: var(--font-fraunces), Georgia, serif;
+  font-size: 5rem;
+  line-height: 0.6;
+  font-weight: 600;
+  color: var(--primary);
+  user-select: none;
+}

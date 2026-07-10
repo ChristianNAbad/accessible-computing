@@ -90,8 +90,14 @@ export const PORTFOLIO: PortfolioItem[] = [
   {
     client: "CannaBuddy.com",
     description:
-      "Full ecommerce platform for award-winning hemp THC beverages. Powered by agentic AI development workflows.",
+      "Full ecommerce platform for Fueling My Dreams' award-winning hemp THC beverage brand. Powered by agentic AI development workflows.",
     tags: ["Ecommerce", "AI/Agentic", "Full-Stack"],
+  },
+  {
+    client: "Autonomous Agent Fleet",
+    description:
+      "A production fleet of autonomous bots — Express, TypeScript, Prisma, Railway — built end-to-end with Claude Code agentic workflows and continuous deployment.",
+    tags: ["Claude Code", "TypeScript", "CI/CD"],
   },
   {
     client: "DHS / USCIS",
@@ -192,10 +198,10 @@ export const MILESTONES: Milestone[] = [
       "Co-founded CannaBuddy — hemp THC beverages & cannabis products. CEO role.",
   },
   {
-    year: "2025",
+    year: "2025–Now",
     title: "AI & Agentic Era",
     description:
-      "Pioneering agentic AI coding with Claude Code. 30+ years of expertise meets bleeding-edge technology.",
+      "Pioneering agentic AI coding with Claude Code. Three decades of expertise compounding with autonomous workflows.",
   },
 ];
 
