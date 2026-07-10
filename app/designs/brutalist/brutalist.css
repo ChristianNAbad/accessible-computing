@@ -1,0 +1,107 @@
+/* ============================================================
+   CONCEPT 2 — THE BRUTALIST
+   "The web as it's built." Raw structure, hard shadows,
+   one loud yellow. Archivo Black display · Archivo body.
+   All text pairs ≥ 7:1 (WCAG 2.2 AAA), both themes.
+   Yellow (#ffd400) is ONLY ever a background for black text.
+   ============================================================ */
+
+.v-brutalist {
+  --background: #f1efe7;
+  --foreground: #101010;
+  --primary: #1a35ae;
+  --primary-light: #2b4ad6;
+  --accent: #ffd400;
+  --accent-light: #ffe04d;
+  --muted: #e6e3d6;
+  --muted-foreground: #3d3d38;
+  --border: #101010;
+  --card: #ffffff;
+  --ring: #101010;
+  --gradient-start: #1a35ae;
+  --gradient-end: #1a35ae;
+  --section-alt: #e9e6da;
+
+  font-family: var(--font-archivo), Arial, Helvetica, sans-serif;
+  /* clip (not hidden): contains scroll-reveal entrance offsets without
+     creating a scroll container */
+  overflow-x: clip;
+}
+
+.dark .v-brutalist {
+  --background: #141414;
+  --foreground: #f1efe7;
+  --primary: #9db1ff;
+  --primary-light: #b3c2ff;
+  --accent: #ffd400;
+  --accent-light: #ffe04d;
+  --muted: #1e1e1e;
+  --muted-foreground: #c9c7bd;
+  --border: #f1efe7;
+  --card: #101010;
+  --ring: #ffd400;
+  --gradient-start: #9db1ff;
+  --gradient-end: #9db1ff;
+  --section-alt: #191919;
+}
+
+/* Display face */
+.br-display {
+  font-family: var(--font-archivo-black), Arial, Helvetica, sans-serif;
+  font-weight: 400;
+}
+
+/* Hard offset shadow */
+.br-shadow {
+  box-shadow: 6px 6px 0 0 var(--foreground);
+}
+
+.br-shadow-sm {
+  box-shadow: 4px 4px 0 0 var(--foreground);
+}
+
+/* Pop on hover: lift against the shadow */
+@media (prefers-reduced-motion: no-preference) {
+  .br-pop {
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+
+  .br-pop:hover {
+    transform: translate(-3px, -3px);
+    box-shadow: 9px 9px 0 0 var(--foreground);
+  }
+}
+
+/* Yellow block — always black text, both themes */
+.br-accent-block {
+  background: var(--accent);
+  color: #101010;
+}
+
+/* Highlighter mark for key phrases */
+.br-mark {
+  background: var(--accent);
+  color: #101010;
+  padding: 0 0.25em;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+/* Raw bordered input */
+.v-brutalist .br-input {
+  width: 100%;
+  background: var(--card);
+  border: 3px solid var(--foreground);
+  border-radius: 0;
+  padding: 0.75rem 1rem;
+  font-family: inherit;
+  font-size: 1rem;
+  color: var(--foreground);
+}
+
+.v-brutalist .br-input:focus {
+  outline: 3px solid var(--ring);
+  outline-offset: 3px;
+  background: var(--accent);
+  color: #101010;
+}

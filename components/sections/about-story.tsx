@@ -30,10 +30,13 @@ export function AboutStory() {
                 <p>
                   Founded in 2005 by Christian N. Abad, Accessible Computing
                   was born from a simple conviction: the web should work for
-                  everyone. With a career spanning 30+ years — from Mitsubishi
-                  Semiconductors to leading web accessibility at Bank of America
-                  as VP — Christian has been at the forefront of every major
-                  shift in web technology.
+                  everyone. That conviction has roots — Christian&apos;s degree
+                  from Appalachian State pairs Psychology with Computer
+                  Science, and understanding people has shaped how he builds
+                  software ever since. Across a career spanning 30+ years —
+                  from Mitsubishi Semiconductors to leading web accessibility
+                  at Bank of America as VP — he has been at the forefront of
+                  every major shift in web technology.
                 </p>
                 <p>
                   At Bank of America, he managed accessibility compliance for
@@ -47,7 +50,8 @@ export function AboutStory() {
                   autonomous coding workflows, he&apos;s achieving what once
                   took entire teams — a philosophy that powers the success of{" "}
                   <strong>CannaBuddy.com</strong>, the award-winning hemp THC
-                  beverage brand he co-founded and leads as CEO.
+                  beverage brand he co-founded under Fueling My Dreams and
+                  leads as CEO.
                 </p>
                 <p>
                   Three decades. Countless technologies. One constant: making
