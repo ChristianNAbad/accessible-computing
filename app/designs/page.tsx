@@ -63,6 +63,30 @@ const CONCEPTS = [
       "The current default: Geist, the blue-to-red gradient, the stock navbar and footer, and the same sections the live homepage renders. Here so it can be judged against the other six on equal terms.",
     swatches: ["#ffffff", "#003d80", "#c41400"],
   },
+  {
+    href: "/designs/answer",
+    name: "The Answer",
+    thesis: "Be the answer your customers get",
+    description:
+      "Built from the structure of the page that ranks #2 for generative engine optimization services: a page shaped like an AI answer. Definition first, what you get, a five-step process, a comparison table, FAQ. Dark hero with a glow field, light body.",
+    swatches: ["#0f1a1c", "#084646", "#ffb454"],
+  },
+  {
+    href: "/designs/proof",
+    name: "The Proof",
+    thesis: "Proof before pitch",
+    description:
+      "Built from the structure of the DR-80 agency homepage that ranks for AI SEO and Charlotte SEO: trust chips under the hero, a review row, testimonials before services, three named tools, plain-terms promises. Warm white, leaf green, clay orange.",
+    swatches: ["#ffffff", "#155126", "#8a3700"],
+  },
+  {
+    href: "/designs/conversation",
+    name: "The Conversation",
+    thesis: "Search is a conversation now",
+    description:
+      "Built from the structure of the page that ranks #3 for AI SEO agency: the lead form lives inside a black hero, then a stat strip, a before-and-now contrast, an acronym grid and a comparison table. Black, lime, magenta.",
+    swatches: ["#0a0a0a", "#c6ff3d", "#ff7ad9"],
+  },
 ] as const;
 
 export default function DesignsIndex() {
@@ -73,11 +97,12 @@ export default function DesignsIndex() {
           Internal — not indexed
         </p>
         <h1 className="mt-4 text-4xl font-black tracking-tight sm:text-5xl">
-          Seven design concepts
+          Ten design concepts
         </h1>
         <p className="mt-4 max-w-2xl text-lg text-muted-foreground">
-          Same content, same WCAG 2.2 AAA rigor — seven points of view,
-          including the site as it stands today. Toggle dark mode on each; every palette is tuned for both
+          Same content, same WCAG 2.2 AAA rigor — ten points of view,
+          including the site as it stands today and three built from the
+          structure of the pages that currently rank for our keywords. Toggle dark mode on each; every palette is tuned for both
           themes. The three newest lead with the free-audit conversion.
         </p>
 

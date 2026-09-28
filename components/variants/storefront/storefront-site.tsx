@@ -130,8 +130,8 @@ export function StorefrontSite() {
               >
                 An outsourced marketing department for ecommerce brands:
                 product content, search, email, ads, and the AI answers your
-                customers read before they ever hit your store. Run by an
-                engineer who runs two brands of his own.
+                customers read before they ever hit your store. A dedicated
+                account manager runs your account from day one.
               </motion.p>
 
               <motion.div
@@ -275,23 +275,30 @@ export function StorefrontSite() {
                 id="about-heading"
                 className="sf-display mt-5 text-5xl font-black sm:text-7xl"
               >
-                Built by someone who has to hit a number too.
+                A team that has to hit a number too.
               </h2>
               <div className="mt-6 space-y-5 text-lg leading-relaxed text-muted-foreground">
                 <p>
-                  Christian N. Abad is Founder and CEO of{" "}
+                  Your account has a dedicated account manager: a working
+                  marketing expert who owns the plan, reviews every
+                  deliverable before it ships, and writes the monthly report
+                  you can read in five minutes.
+                </p>
+                <p>
+                  Behind them is a small team covering product content,
+                  search, email and paid. One client per product category, so
+                  nobody on your account is also working for your competitor.
+                </p>
+                <p>
+                  Behind the team is the founder: Christian N. Abad, a
+                  thirty-year software engineer who led web accessibility for
+                  5,000+ pages at Bank of America, and Founder and CEO of{" "}
                   <strong className="text-foreground">CannaBuddy</strong> and{" "}
                   <strong className="text-foreground">Purely Found</strong>,
                   two consumer brands that live or die on the same channels
-                  your store does. He is also a thirty-year software engineer
-                  who led web accessibility for 5,000+ pages at Bank of
-                  America.
-                </p>
-                <p>
-                  The playbook you get is the one his own stores run on:
-                  product content that ranks, email that earns, ads that are
-                  cut the day they stop working, and a monthly report you can
-                  read in five minutes.
+                  your store does. The playbook you get is the one his own
+                  stores run on: product content that ranks, email that earns,
+                  ads that are cut the day they stop working.
                 </p>
               </div>
               <div className="mt-8 flex flex-wrap gap-3">
@@ -437,8 +444,8 @@ export function StorefrontSite() {
               <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
                 Drop your store URL. We send back where you are losing search
                 traffic, what your email list could be earning, and whether
-                the AI shopping answers mention you at all. A human reads it
-                before you do.
+                the AI shopping answers mention you at all. Your account
+                manager reviews it before it is sent.
               </p>
               <p className="mt-8 text-sm font-bold">
                 Or call{" "}
@@ -568,7 +575,8 @@ function StorefrontAuditForm() {
 
       {status === "sent" && (
         <p className="text-sm font-extrabold" role="status">
-          Order received. Your audit ships within two business days.
+          Order received. Your account manager will review your audit and
+          ship it within two business days.
         </p>
       )}
       {status === "error" && (

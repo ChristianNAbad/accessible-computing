@@ -149,8 +149,9 @@ export function DashboardSite() {
                 className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground"
               >
                 Content, search, email and paid for brands that sell online.
-                Run by a thirty-year engineer, measured every week, and
-                reported in a dashboard you will actually read.
+                A dedicated account manager runs your account, measures it
+                every week, and reports it in a dashboard you will actually
+                read.
               </motion.p>
 
               <motion.div
@@ -326,22 +327,28 @@ export function DashboardSite() {
                 id="about-heading"
                 className="db-display mt-3 text-4xl font-bold sm:text-5xl"
               >
-                An engineer who sells things online too.
+                One account manager, one team, one number.
               </h2>
               <div className="mt-6 space-y-5 text-lg leading-relaxed text-muted-foreground">
                 <p>
-                  Christian N. Abad has shipped software for thirty years, from
-                  Solaris workstations to autonomous coding agents. He led web
-                  accessibility for more than 5,000 customer-facing pages at
-                  Bank of America and built applications for DHS and the US
-                  Navy.
+                  Every account has a dedicated account manager: a working
+                  marketing expert who owns the plan, reviews every
+                  deliverable before it ships, and writes the monthly report
+                  you will actually read.
                 </p>
                 <p>
-                  He also runs two consumer brands on the same engine your
-                  account would use:{" "}
+                  Behind them is a small team covering content, search, email
+                  and paid. We take one client per product category, so nobody
+                  on your account is also working your competitor&apos;s.
+                </p>
+                <p>
+                  The founder, Christian N. Abad, is a thirty-year engineer who
+                  led web accessibility for more than 5,000 pages at Bank of
+                  America and is Founder and CEO of{" "}
                   <strong className="text-foreground">CannaBuddy</strong> and{" "}
                   <strong className="text-foreground">Purely Found</strong>.
-                  Every process here is one he uses on his own companies
+                  Both brands run on the same playbook your account manager
+                  uses, and every process here is one his own companies use
                   first.
                 </p>
               </div>
@@ -516,8 +523,8 @@ export function DashboardSite() {
               <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
                 Send us your site. We come back with the search gaps, the
                 email revenue you are leaving on the table, and where the AI
-                answer engines mention you today. Reviewed by a human before
-                it is sent.
+                answer engines mention you today. Reviewed by your account
+                manager before it is sent.
               </p>
               <dl className="mt-8 space-y-3 text-sm">
                 <div className="flex gap-3">
@@ -657,8 +664,8 @@ function DashboardAuditForm() {
 
       {status === "sent" && (
         <p className="text-sm font-semibold text-accent" role="status">
-          Got it. Your audit is in the queue; expect it within two business
-          days.
+          Got it. Your account manager will review your audit and send it
+          within two business days.
         </p>
       )}
       {status === "error" && (

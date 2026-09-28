@@ -106,7 +106,7 @@ export const PORTFOLIO: PortfolioItem[] = [
     tags: ["Government", "Accessibility", "Agile"],
   },
   {
-    client: "PurelyFound.com",
+    client: "Purely Found",
     description:
       "Modern web presence and digital marketing strategy for organic search visibility.",
     tags: ["SEO", "Web Design", "Marketing"],
@@ -195,7 +195,7 @@ export const MILESTONES: Milestone[] = [
     year: "2018",
     title: "CannaBuddy Launched",
     description:
-      "Co-founded CannaBuddy — hemp THC beverages & cannabis products. CEO role.",
+      "Founder and CEO of CannaBuddy: hemp THC beverages and cannabis products.",
   },
   {
     year: "2025–Now",

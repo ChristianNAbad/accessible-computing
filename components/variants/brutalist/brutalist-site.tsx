@@ -125,8 +125,9 @@ export function BrutalistSite() {
               className="mt-6 max-w-xl text-base font-medium leading-relaxed"
             >
               <span aria-hidden="true">*</span>Yes, everyone. It&apos;s in the
-              name. Web development, accessibility consulting, and agentic AI
-              engineering — zero decoration, all structure.
+              name. Marketing for brands that sell online: content, search,
+              email, paid. One dedicated account manager runs your account.
+              Zero decoration, all structure.
             </motion.p>
 
             <motion.div variants={item} className="mt-10 flex flex-wrap gap-5">
@@ -265,28 +266,27 @@ export function BrutalistSite() {
                       </span>
                     </p>
                     <p>
-                      The roots: a degree from Appalachian State pairing{" "}
+                      How it runs:{" "}
                       <span className="br-mark">
-                        Psychology with Computer Science
+                        one dedicated account manager
                       </span>{" "}
-                      — people first, then machines. Career start in 1995 at
-                      Mitsubishi Semiconductors. C, Solaris, X-Motif. The hard
-                      way.
+                      per account. A working marketing expert. Owns the plan,
+                      reviews everything before it ships, writes the monthly
+                      report.
                     </p>
                     <p>
-                      At Bank of America: VP, Web Accessibility Team Manager.{" "}
+                      Behind them, a small team: content, search, email, paid.{" "}
+                      <span className="br-mark">One client per product category.</span>{" "}
+                      Nobody here works for your competitor.
+                    </p>
+                    <p>
+                      The founder: thirty-year engineer. Bank of America VP,{" "}
                       <span className="br-mark">5,000+ pages</span> brought to
-                      WCAG and Section 508 compliance. Then federal work —
-                      DHS/USCIS, US Navy. Standards aren&apos;t a checkbox
-                      here; they&apos;re the material.
-                    </p>
-                    <p>
-                      Now:{" "}
+                      WCAG and Section 508. DHS/USCIS, US Navy. Now Founder and
+                      CEO of CannaBuddy and Purely Found, both run on the same
+                      playbook and shipped with{" "}
                       <span className="br-mark">agentic AI development</span>{" "}
-                      with Claude Code. One engineer shipping what used to take
-                      teams — the engine behind CannaBuddy.com, the
-                      award-winning hemp THC beverage brand he co-founded under
-                      Fueling My Dreams and leads as CEO.
+                      in Claude Code.
                     </p>
                   </div>
                   <div className="mt-8 flex flex-wrap gap-4">
@@ -446,8 +446,8 @@ export function BrutalistSite() {
                 <span className="br-accent-block inline-block px-2">us</span>
               </h2>
               <p className="mt-4 max-w-xl text-base font-medium">
-                A build, an audit, or an agentic AI experiment. No layers of
-                account managers — you talk to the engineer.
+                A free audit of your store, reviewed by your account manager
+                before it is sent. One manager, one team, no handoffs.
               </p>
             </ScrollReveal>
 
@@ -640,7 +640,7 @@ function BrutalistContactForm() {
 
       {status === "sent" && (
         <p className="br-display text-sm uppercase" role="status">
-          ✓ Sent. We&apos;ll be in touch.
+          ✓ Sent. Your account manager will be in touch.
         </p>
       )}
       {status === "error" && (

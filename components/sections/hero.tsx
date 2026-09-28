@@ -74,9 +74,9 @@ export function Hero() {
           variants={item}
           className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground md:text-xl"
         >
-          {COMPANY.name} — full-service web development, accessibility
-          consulting, and AI-powered solutions. From enterprise compliance to
-          cutting-edge agentic development.
+          {COMPANY.name} is a small marketing agency for brands that sell
+          online: content, search, email and paid, with a dedicated account
+          manager running every account.
         </motion.p>
 
         {/* CTAs */}

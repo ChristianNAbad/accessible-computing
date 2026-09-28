@@ -1,0 +1,221 @@
+/* ============================================================
+   CONCEPT 8 — THE ANSWER
+   Derived from the structure of the page ranking #2 for
+   "generative engine optimization services": a page shaped like
+   an AI answer. Definition first, what you get, numbered process,
+   comparison table, FAQ, founder quote. Dark hero with a glow
+   field, light body. Schibsted Grotesk display · Figtree body.
+   All text pairs >= 7:1 (WCAG 2.2 AAA), both themes.
+   ============================================================ */
+
+.v-answer {
+  --background: #f6f7f5;
+  --foreground: #0f1a1c;
+  --primary: #084646;
+  --primary-light: #0b5c5c;
+  --accent: #6b3800;
+  --accent-light: #8a4b00;
+  --muted: #e8ecea;
+  --muted-foreground: #3f4d4f;
+  --border: #c7d1ce;
+  --card: #ffffff;
+  --ring: #084646;
+  --gradient-start: #084646;
+  --gradient-end: #6b3800;
+  --section-alt: #eef2f0;
+  /* The hero is always dark, in both themes */
+  --an-hero-bg: #0f1a1c;
+  --an-hero-fg: #e9efee;
+  --an-hero-muted: #a9b8b7;
+  --an-hero-accent: #ffb454;
+  --an-hero-teal: #5fd3c8;
+  --an-hero-line: #24383b;
+
+  font-family: var(--font-figtree), "Helvetica Neue", Arial, sans-serif;
+  overflow-x: clip;
+}
+
+.dark .v-answer {
+  --background: #0f1a1c;
+  --foreground: #e9efee;
+  --primary: #5fd3c8;
+  --primary-light: #7fe0d6;
+  --accent: #ffb454;
+  --accent-light: #ffc475;
+  --muted: #16262a;
+  --muted-foreground: #a9b8b7;
+  --border: #2a3f43;
+  --card: #122023;
+  --ring: #5fd3c8;
+  --gradient-start: #5fd3c8;
+  --gradient-end: #ffb454;
+  --section-alt: #132124;
+}
+
+.an-display {
+  font-family: var(--font-schibsted), "Helvetica Neue", Arial, sans-serif;
+  letter-spacing: -0.025em;
+}
+
+/* Hero: fixed dark palette regardless of theme */
+.an-hero {
+  background: var(--an-hero-bg);
+  color: var(--an-hero-fg);
+  position: relative;
+  overflow: hidden;
+}
+
+.an-hero-muted {
+  color: var(--an-hero-muted);
+}
+
+.an-hero-accent {
+  color: var(--an-hero-accent);
+}
+
+/* Glow field: two soft radial lights plus a faint dot lattice */
+.an-glow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(38rem 26rem at 78% 20%, rgba(95, 211, 200, 0.18), transparent 65%),
+    radial-gradient(30rem 22rem at 12% 90%, rgba(255, 180, 84, 0.14), transparent 65%),
+    radial-gradient(circle at 1px 1px, rgba(233, 239, 238, 0.07) 1px, transparent 1.5px);
+  background-size:
+    auto,
+    auto,
+    28px 28px;
+}
+
+/* Answer card in the hero, reads like a cited response */
+.an-answer-card {
+  background: rgba(18, 32, 35, 0.85);
+  border: 1px solid var(--an-hero-line);
+  border-left: 3px solid var(--an-hero-accent);
+  backdrop-filter: blur(6px);
+}
+
+.an-cite {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  border: 1px solid var(--an-hero-line);
+  border-radius: 9999px;
+  padding: 0.15rem 0.6rem;
+  font-size: 0.7rem;
+  color: var(--an-hero-muted);
+}
+
+/* Body: definition block styled like a dictionary entry */
+.an-definition {
+  border-left: 4px solid var(--primary);
+  background: var(--card);
+}
+
+/* Comparison table */
+.an-table th,
+.an-table td {
+  border-bottom: 1px solid var(--border);
+  padding: 0.9rem 1rem;
+  vertical-align: top;
+}
+
+.an-table th[scope="col"] {
+  border-bottom: 2px solid var(--foreground);
+  text-align: left;
+}
+
+.an-table .an-us {
+  background: var(--muted);
+}
+
+/* FAQ: native disclosure, animated marker */
+.an-faq summary {
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.an-faq summary::-webkit-details-marker {
+  display: none;
+}
+
+.an-faq summary::after {
+  content: "+";
+  font-size: 1.5rem;
+  line-height: 1;
+  color: var(--primary);
+  transition: transform 0.2s ease;
+}
+
+.an-faq[open] summary::after {
+  transform: rotate(45deg);
+}
+
+.an-faq summary:focus-visible {
+  outline: 3px solid var(--ring);
+  outline-offset: 4px;
+}
+
+/* Step numbers */
+.an-step {
+  display: grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 9999px;
+  background: var(--primary);
+  color: var(--background);
+  font-weight: 700;
+}
+
+/* Inputs */
+.v-answer .an-input {
+  width: 100%;
+  background: var(--card);
+  border: 1.5px solid var(--muted-foreground);
+  border-radius: 0.6rem;
+  padding: 0.8rem 1rem;
+  font-family: inherit;
+  font-size: 1rem;
+  color: var(--foreground);
+  transition: border-color 0.2s ease;
+}
+
+.v-answer .an-input:focus {
+  border-color: var(--primary);
+  outline: 3px solid var(--ring);
+  outline-offset: 2px;
+}
+
+/* Typewriter reveal for the answer card, once */
+.an-type {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  max-width: 100%;
+  animation: an-type 1.4s 0.5s steps(40, end) both;
+}
+
+@keyframes an-type {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .an-type {
+    animation: none;
+    white-space: normal;
+  }
+  .an-faq summary::after {
+    transition: none;
+  }
+}
