@@ -1,0 +1,200 @@
+/* ============================================================
+   CONCEPT 5 — THE STOREFRONT
+   "Built for brands that sell." Peach cream, cobalt ink, tangerine
+   stickers, pistachio tags. Big Shoulders Display condensed caps ·
+   Albert Sans body. Rounded, tilted, product-card everything.
+   All text pairs >= 7:1 (WCAG 2.2 AAA), both themes.
+   ============================================================ */
+
+.v-storefront {
+  --background: #fff3e6;
+  --foreground: #1c1530;
+  --primary: #1f3fbf;
+  --primary-light: #2a4fd6;
+  --accent: #ff8a3d;
+  --accent-light: #ffa05e;
+  --muted: #ffe8d1;
+  --muted-foreground: #4a4360;
+  --border: #1c1530;
+  --card: #fffaf3;
+  --ring: #1f3fbf;
+  --gradient-start: #1f3fbf;
+  --gradient-end: #ff8a3d;
+  --section-alt: #ffe8d1;
+  --sf-on-accent: #1c1530;
+  --sf-pistachio: #cfe8a8;
+  --sf-on-pistachio: #1c1530;
+  --sf-shadow: #1f3fbf;
+
+  font-family: var(--font-albert-sans), "Helvetica Neue", Arial, sans-serif;
+  overflow-x: clip;
+}
+
+.dark .v-storefront {
+  --background: #1c1530;
+  --foreground: #fff3e6;
+  --primary: #9fb4ff;
+  --primary-light: #b8c8ff;
+  --accent: #ff8a3d;
+  --accent-light: #ffa05e;
+  --muted: #271e42;
+  --muted-foreground: #cfc6e6;
+  --border: #fff3e6;
+  --card: #221a3a;
+  --ring: #9fb4ff;
+  --gradient-start: #9fb4ff;
+  --gradient-end: #ff8a3d;
+  --section-alt: #221a3a;
+  --sf-on-accent: #1c1530;
+  --sf-pistachio: #cfe8a8;
+  --sf-on-pistachio: #1c1530;
+  --sf-shadow: #9fb4ff;
+}
+
+.sf-display {
+  font-family: var(--font-big-shoulders), Impact, "Arial Narrow", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  line-height: 0.9;
+}
+
+/* Polka field — decorative, low contrast, no text sits on it alone */
+.sf-dots {
+  background-image: radial-gradient(var(--border) 1px, transparent 1.2px);
+  background-size: 22px 22px;
+  opacity: 0.12;
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Product card: thick outline, hard offset shadow in ink blue */
+.sf-card {
+  background: var(--card);
+  border: 3px solid var(--border);
+  border-radius: 1.5rem;
+  box-shadow: 8px 8px 0 0 var(--sf-shadow);
+  transition:
+    transform 0.25s cubic-bezier(0.21, 0.47, 0.32, 0.98),
+    box-shadow 0.25s cubic-bezier(0.21, 0.47, 0.32, 0.98);
+}
+
+.sf-card:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 12px 12px 0 0 var(--sf-shadow);
+}
+
+/* Stickers: tangerine pill, always dark text, slight tilt */
+.sf-sticker {
+  display: inline-flex;
+  align-items: center;
+  background: var(--accent);
+  color: var(--sf-on-accent);
+  border: 2px solid var(--sf-on-accent);
+  border-radius: 9999px;
+  padding: 0.35rem 0.9rem;
+  font-weight: 800;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  transform: rotate(-2.5deg);
+}
+
+.sf-sticker--alt {
+  background: var(--sf-pistachio);
+  color: var(--sf-on-pistachio);
+  transform: rotate(2deg);
+}
+
+/* Price-tag notch */
+.sf-tag {
+  position: relative;
+  background: var(--sf-pistachio);
+  color: var(--sf-on-pistachio);
+  border: 2px solid var(--sf-on-pistachio);
+  border-radius: 0.6rem 9999px 9999px 0.6rem;
+  padding: 0.3rem 1rem 0.3rem 0.8rem;
+  font-weight: 800;
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+/* Conveyor strip */
+.sf-strip {
+  border-top: 3px solid var(--border);
+  border-bottom: 3px solid var(--border);
+  background: var(--primary);
+  color: var(--background);
+}
+
+.sf-strip-track {
+  display: flex;
+  white-space: nowrap;
+  animation: sf-scroll 32s linear infinite;
+}
+
+@keyframes sf-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Inputs: outlined, rounded, fat focus ring */
+.v-storefront .sf-input {
+  width: 100%;
+  background: var(--card);
+  border: 3px solid var(--border);
+  border-radius: 1rem;
+  padding: 0.85rem 1.1rem;
+  font-family: inherit;
+  font-size: 1rem;
+  color: var(--foreground);
+  transition: box-shadow 0.2s ease;
+}
+
+.v-storefront .sf-input:focus {
+  outline: 3px solid var(--ring);
+  outline-offset: 3px;
+  box-shadow: 4px 4px 0 0 var(--sf-shadow);
+}
+
+/* Wobble on the hero word, once */
+.sf-wobble {
+  display: inline-block;
+  animation: sf-wobble 1.2s 0.6s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+
+@keyframes sf-wobble {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  20% {
+    transform: rotate(-3deg);
+  }
+  40% {
+    transform: rotate(2.5deg);
+  }
+  60% {
+    transform: rotate(-1.5deg);
+  }
+  80% {
+    transform: rotate(1deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sf-strip-track,
+  .sf-wobble {
+    animation: none;
+  }
+  .sf-card,
+  .sf-card:hover {
+    transform: none;
+  }
+}
