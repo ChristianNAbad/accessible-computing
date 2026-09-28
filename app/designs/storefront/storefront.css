@@ -1,7 +1,7 @@
 /* ============================================================
    CONCEPT 5 — THE STOREFRONT
    "Built for brands that sell." Peach cream, cobalt ink, tangerine
-   stickers, pistachio tags. Big Shoulders Display condensed caps ·
+   stickers, pistachio tags. Big Shoulders condensed caps ·
    Albert Sans body. Rounded, tilted, product-card everything.
    All text pairs >= 7:1 (WCAG 2.2 AAA), both themes.
    ============================================================ */
@@ -133,6 +133,12 @@
   display: flex;
   white-space: nowrap;
   animation: sf-scroll 32s linear infinite;
+}
+
+.sf-strip[data-paused="true"] .sf-strip-track,
+.sf-strip:hover .sf-strip-track,
+.sf-strip:focus-within .sf-strip-track {
+  animation-play-state: paused;
 }
 
 @keyframes sf-scroll {

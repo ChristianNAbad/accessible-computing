@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
@@ -50,6 +51,7 @@ export function StorefrontSite() {
   };
 
   const strip = [...STRIP, ...STRIP];
+  const [stripPaused, setStripPaused] = useState(false);
 
   return (
     <>
@@ -166,8 +168,17 @@ export function StorefrontSite() {
         </section>
 
         {/* ============ Conveyor strip ============ */}
-        <div className="sf-strip overflow-hidden py-4" aria-hidden="true">
-          <div className="sf-strip-track">
+        <div className="sf-strip relative overflow-hidden py-4" data-paused={stripPaused}>
+          <button
+            type="button"
+            onClick={() => setStripPaused((p) => !p)}
+            aria-pressed={stripPaused}
+            className="absolute right-3 top-1/2 z-10 -translate-y-1/2 rounded-full border-2 border-background bg-primary px-3 py-1 text-xs font-extrabold uppercase tracking-[0.12em] text-background"
+          >
+            {stripPaused ? "Play" : "Pause"}
+            <span className="sr-only"> the scrolling banner</span>
+          </button>
+          <div className="sf-strip-track" aria-hidden="true">
             {strip.map((s, i) => (
               <span
                 key={i}
@@ -181,21 +192,21 @@ export function StorefrontSite() {
 
         {/* ============ Stats ============ */}
         <section aria-label="Track record at a glance" className="px-6 py-14">
-          <dl className="mx-auto grid max-w-7xl gap-4 sm:grid-cols-3">
-            {STATS.map((stat, i) => (
-              <ScrollReveal key={stat.label} delay={prefersReducedMotion ? 0 : i * 0.06}>
-                <div className="sf-card p-6">
-                  <dd className="sf-display text-6xl font-black text-primary">
+          <ScrollReveal>
+            <dl className="mx-auto grid max-w-7xl gap-4 sm:grid-cols-3">
+              {STATS.map((stat) => (
+                <div key={stat.label} className="sf-card flex flex-col p-6">
+                  <dt className="order-last mt-2 text-sm font-bold uppercase tracking-[0.14em] text-muted-foreground">
+                    {stat.label}
+                  </dt>
+                  <dd className="sf-display order-first text-6xl font-black text-primary">
                     {stat.value.toLocaleString()}
                     {stat.suffix}
                   </dd>
-                  <dt className="mt-2 text-sm font-bold uppercase tracking-[0.14em] text-muted-foreground">
-                    {stat.label}
-                  </dt>
                 </div>
-              </ScrollReveal>
-            ))}
-          </dl>
+              ))}
+            </dl>
+          </ScrollReveal>
         </section>
 
         {/* ============ Services — product cards ============ */}
@@ -241,6 +252,7 @@ export function StorefrontSite() {
                         className="mt-6 inline-flex h-10 items-center justify-center rounded-full border-2 border-border bg-card px-4 text-xs font-extrabold uppercase tracking-[0.12em] transition-colors hover:bg-primary hover:text-background"
                       >
                         Add to plan
+                        <span className="sr-only">: {service.title}</span>
                       </a>
                     </li>
                   </ScrollReveal>
@@ -382,22 +394,14 @@ export function StorefrontSite() {
                 id="testimonials-heading"
                 className="sf-display text-5xl font-black sm:text-7xl"
               >
-                Five-star reviews
+                What customers say
               </h2>
             </ScrollReveal>
             <div className="mt-12 grid gap-8 md:grid-cols-2">
               {TESTIMONIALS.map((testimonial, i) => (
                 <ScrollReveal key={i} delay={prefersReducedMotion ? 0 : i * 0.08}>
                   <figure className="sf-card p-7">
-                    <p
-                      className="sf-display text-2xl font-extrabold"
-                      aria-label="Five out of five stars"
-                    >
-                      <span aria-hidden="true" className="text-primary">
-                        ★★★★★
-                      </span>
-                    </p>
-                    <blockquote className="mt-4 text-lg leading-relaxed">
+                    <blockquote className="text-lg leading-relaxed">
                       “{testimonial.quote}”
                     </blockquote>
                     <figcaption className="mt-6 border-t-2 border-border pt-4">
@@ -461,7 +465,7 @@ export function StorefrontSite() {
       </main>
 
       {/* ============ Footer ============ */}
-      <footer className="relative z-10 border-t-[3px] border-border px-6 py-12" role="contentinfo">
+      <footer className="relative z-10 border-t-[3px] border-border px-6 pt-12 pb-32" role="contentinfo">
         <div className="mx-auto flex max-w-7xl flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <p className="sf-display text-4xl font-black">Accessible Computing</p>
