@@ -78,6 +78,14 @@ describe.each(CASES)("$name design concept", ({ Site, heading, submit, messageLa
   });
 });
 
+describe("Answer pricing", () => {
+  it("renders the retainer from TERMS with a currency sign", () => {
+    render(<AnswerSite />);
+    expect(screen.getAllByText(/\$2,000 plus your ad spend/).length).toBe(1);
+    expect(screen.getAllByText(/12 months at \$2,000 per month/).length).toBe(1);
+  });
+});
+
 describe("Conversation hero form", () => {
   afterEach(() => {
     vi.unstubAllGlobals();

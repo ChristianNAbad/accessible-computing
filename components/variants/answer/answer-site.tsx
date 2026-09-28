@@ -16,7 +16,7 @@ import {
   TERMS,
 } from "@/lib/constants";
 
-const usd = (n: number) => `${n.toLocaleString("en-US")}`;
+const usd = (n: number) => "$" + n.toLocaleString("en-US");
 
 const STEPS = [
   {

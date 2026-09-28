@@ -23,13 +23,13 @@ export const metadata: Metadata = {
   description:
     "A small marketing agency for brands that sell online: content, search, email, paid and AI-search visibility, with a dedicated account manager on every account. Built to WCAG 2.2 AAA.",
   keywords: [
-    "web accessibility",
-    "WCAG 2.2",
-    "Section 508",
-    "web development",
-    "accessibility consulting",
-    "ADA compliance",
-    "agentic AI",
+    "marketing agency for ecommerce brands",
+    "outsourced marketing department",
+    "ecommerce SEO agency",
+    "Klaviyo email marketing agency",
+    "Google Ads management",
+    "AI search visibility",
+    "generative engine optimization",
     "Charlotte NC",
     "Matthews NC",
   ],
@@ -106,7 +106,9 @@ export default function RootLayout({
       <body className="min-h-screen bg-background text-foreground antialiased">
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(JSON_LD) }}
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(JSON_LD).replace(/</g, "\\u003c"),
+          }}
         />
         <ThemeProvider>
           <a href="#main-content" className="skip-link">
