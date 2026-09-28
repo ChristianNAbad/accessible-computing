@@ -31,6 +31,30 @@ const CONCEPTS = [
       "Phosphor green on near-black, monospace-forward, a timeline set like a git log. Thirty years from Solaris workstations to autonomous agents — the heritage aesthetic, at AAA.",
     swatches: ["#0b100d", "#d6e5d6", "#47e584"],
   },
+  {
+    href: "/designs/dashboard",
+    name: "The Dashboard",
+    thesis: "Marketing that reports in numbers",
+    description:
+      "Dark-native navy with a coral signal and mint confirmations. A sample client dashboard sits in the hero, services land in a bento grid, and every figure is tabular. The agency that shows its numbers.",
+    swatches: ["#0b1020", "#e8ecf7", "#ff8a6b"],
+  },
+  {
+    href: "/designs/storefront",
+    name: "The Storefront",
+    thesis: "Built for brands that sell",
+    description:
+      "Peach cream, cobalt ink, tangerine stickers and pistachio price tags. Condensed poster caps, product-card services with SKUs, and a conveyor strip of promises. Ecommerce energy, AAA contrast.",
+    swatches: ["#fff3e6", "#1f3fbf", "#ff8a3d"],
+  },
+  {
+    href: "/designs/blueprint",
+    name: "The Blueprint",
+    thesis: "Marketing, engineered",
+    description:
+      "Drafting-paper grid, dimension lines, numbered plates and mono annotations. A schematic of the growth system in the hero, a title block in the footer, safety-orange calls to action. Cyanotype in dark mode.",
+    swatches: ["#eef3fb", "#16449e", "#f5953a"],
+  },
 ] as const;
 
 export default function DesignsIndex() {
@@ -41,12 +65,12 @@ export default function DesignsIndex() {
           Internal — not indexed
         </p>
         <h1 className="mt-4 text-4xl font-black tracking-tight sm:text-5xl">
-          Three design concepts
+          Six design concepts
         </h1>
         <p className="mt-4 max-w-2xl text-lg text-muted-foreground">
-          Same content, same WCAG 2.2 AAA rigor — three very different points
-          of view. Toggle dark mode on each; every palette is tuned for both
-          themes.
+          Same content, same WCAG 2.2 AAA rigor — six very different points of
+          view. Toggle dark mode on each; every palette is tuned for both
+          themes. The three newest lead with the free-audit conversion.
         </p>
 
         <div className="mt-12 space-y-6">

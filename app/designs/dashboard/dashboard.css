@@ -1,0 +1,171 @@
+/* ============================================================
+   CONCEPT 4 — THE DASHBOARD
+   "Marketing that reports in numbers." Dark-native navy, coral
+   signal, mint confirmation. Bricolage Grotesque display ·
+   Instrument Sans body · tabular figures everywhere.
+   All text pairs >= 7:1 (WCAG 2.2 AAA), both themes.
+   ============================================================ */
+
+.v-dashboard {
+  --background: #f4f6fb;
+  --foreground: #0b1020;
+  --primary: #8f2312;
+  --primary-light: #a83320;
+  --accent: #0b5240;
+  --accent-light: #0e6a52;
+  --muted: #e6eaf4;
+  --muted-foreground: #414a66;
+  --border: #c9d0e2;
+  --card: #ffffff;
+  --ring: #8f2312;
+  --gradient-start: #8f2312;
+  --gradient-end: #0b5240;
+  --section-alt: #eaeef7;
+  --db-line: #b7c0d8;
+  --db-glow-a: rgba(143, 35, 18, 0.1);
+  --db-glow-b: rgba(11, 82, 64, 0.1);
+
+  font-family: var(--font-instrument-sans), "Helvetica Neue", Arial, sans-serif;
+  font-variant-numeric: tabular-nums;
+  overflow-x: clip;
+}
+
+.dark .v-dashboard {
+  --background: #0b1020;
+  --foreground: #e8ecf7;
+  --primary: #ff8a6b;
+  --primary-light: #ffa08a;
+  --accent: #6ee7b7;
+  --accent-light: #8cf0c8;
+  --muted: #141a30;
+  --muted-foreground: #aab3cc;
+  --border: #283150;
+  --card: #10162a;
+  --ring: #ff8a6b;
+  --gradient-start: #ff8a6b;
+  --gradient-end: #6ee7b7;
+  --section-alt: #0e1427;
+  --db-line: #2f3a5c;
+  --db-glow-a: rgba(255, 138, 107, 0.16);
+  --db-glow-b: rgba(110, 231, 183, 0.12);
+}
+
+.db-display {
+  font-family: var(--font-bricolage), "Helvetica Neue", Arial, sans-serif;
+  font-optical-sizing: auto;
+  letter-spacing: -0.02em;
+}
+
+/* Gradient mesh — atmosphere only, sits behind everything */
+.db-mesh {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(60rem 40rem at 85% -10%, var(--db-glow-a), transparent 60%),
+    radial-gradient(50rem 36rem at -10% 40%, var(--db-glow-b), transparent 60%),
+    radial-gradient(40rem 30rem at 60% 110%, var(--db-glow-a), transparent 60%);
+}
+
+.db-grain {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Panels: hairline border, faint inner top highlight */
+.db-panel {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 1.25rem;
+  box-shadow:
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.06),
+    0 24px 60px -30px rgba(0, 0, 0, 0.45);
+}
+
+.db-tile {
+  background: var(--muted);
+  border: 1px solid var(--border);
+  border-radius: 0.9rem;
+}
+
+/* Status dot with a slow pulse ring */
+.db-dot {
+  position: relative;
+  display: inline-block;
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 9999px;
+  background: var(--accent);
+}
+
+.db-dot::after {
+  content: "";
+  position: absolute;
+  inset: -0.35rem;
+  border-radius: 9999px;
+  border: 1px solid var(--accent);
+  opacity: 0;
+  animation: db-ping 2.4s ease-out infinite;
+}
+
+@keyframes db-ping {
+  0% {
+    transform: scale(0.6);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+}
+
+/* Sparkline draw-in */
+.db-spark path {
+  stroke-dasharray: 600;
+  stroke-dashoffset: 600;
+  animation: db-draw 1.6s 0.4s cubic-bezier(0.21, 0.47, 0.32, 0.98) forwards;
+}
+
+@keyframes db-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Ruled table rows */
+.db-row {
+  border-top: 1px solid var(--db-line);
+}
+
+/* Inputs: filled, rounded, ring on focus */
+.v-dashboard .db-input {
+  width: 100%;
+  background: var(--muted);
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  padding: 0.8rem 1rem;
+  font-family: inherit;
+  font-size: 1rem;
+  color: var(--foreground);
+  transition: border-color 0.2s ease;
+}
+
+.v-dashboard .db-input:focus {
+  border-color: var(--primary);
+  outline: 3px solid var(--ring);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .db-dot::after,
+  .db-spark path {
+    animation: none;
+    stroke-dashoffset: 0;
+    opacity: 0;
+  }
+}

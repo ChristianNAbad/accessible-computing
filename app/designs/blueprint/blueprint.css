@@ -1,0 +1,245 @@
+/* ============================================================
+   CONCEPT 6 — THE BLUEPRINT
+   "Marketing, engineered." Drafting-paper grid, dimension lines,
+   mono annotations, safety-orange calls to action. Familjen
+   Grotesk display and body · Chivo Mono annotations.
+   Light = white print on blue-lined vellum. Dark = cyanotype.
+   All text pairs >= 7:1 (WCAG 2.2 AAA), both themes.
+   ============================================================ */
+
+.v-blueprint {
+  --background: #eef3fb;
+  --foreground: #0b1f3f;
+  --primary: #16449e;
+  --primary-light: #1d54bd;
+  --accent: #f5953a;
+  --accent-light: #f8a95c;
+  --muted: #e2e9f6;
+  --muted-foreground: #3b4a66;
+  --border: #9fb3d6;
+  --card: #f7f9fe;
+  --ring: #16449e;
+  --gradient-start: #16449e;
+  --gradient-end: #f5953a;
+  --section-alt: #e6edf9;
+  --bp-grid: rgba(22, 68, 158, 0.12);
+  --bp-grid-major: rgba(22, 68, 158, 0.22);
+  --bp-on-accent: #0b1f3f;
+
+  font-family: var(--font-familjen), "Helvetica Neue", Arial, sans-serif;
+  overflow-x: clip;
+}
+
+.dark .v-blueprint {
+  --background: #0b1f3f;
+  --foreground: #eef3fb;
+  --primary: #8fc1ff;
+  --primary-light: #a9cfff;
+  --accent: #f5953a;
+  --accent-light: #f8a95c;
+  --muted: #112a52;
+  --muted-foreground: #b7c6e2;
+  --border: #2d4a7c;
+  --card: #0f2549;
+  --ring: #8fc1ff;
+  --gradient-start: #8fc1ff;
+  --gradient-end: #f5953a;
+  --section-alt: #0d2245;
+  --bp-grid: rgba(143, 193, 255, 0.1);
+  --bp-grid-major: rgba(143, 193, 255, 0.2);
+  --bp-on-accent: #0b1f3f;
+}
+
+.bp-mono {
+  font-family: var(--font-chivo-mono), "Courier New", monospace;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.04em;
+}
+
+/* Drafting grid: minor every 24px, major every 120px */
+.bp-grid {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(var(--bp-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--bp-grid) 1px, transparent 1px),
+    linear-gradient(var(--bp-grid-major) 1px, transparent 1px),
+    linear-gradient(90deg, var(--bp-grid-major) 1px, transparent 1px);
+  background-size:
+    24px 24px,
+    24px 24px,
+    120px 120px,
+    120px 120px;
+}
+
+/* Plate: framed panel with corner registration marks */
+.bp-plate {
+  position: relative;
+  background: var(--card);
+  border: 1.5px solid var(--primary);
+}
+
+.bp-plate::before,
+.bp-plate::after {
+  content: "";
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border-color: var(--primary);
+  border-style: solid;
+}
+
+.bp-plate::before {
+  top: -1.5px;
+  left: -1.5px;
+  border-width: 3px 0 0 3px;
+}
+
+.bp-plate::after {
+  bottom: -1.5px;
+  right: -1.5px;
+  border-width: 0 3px 3px 0;
+}
+
+/* Dimension line: ticks at both ends, label sits in the middle */
+.bp-dim {
+  position: relative;
+  height: 1px;
+  background: var(--primary);
+}
+
+.bp-dim::before,
+.bp-dim::after {
+  content: "";
+  position: absolute;
+  top: -5px;
+  width: 1px;
+  height: 11px;
+  background: var(--primary);
+}
+
+.bp-dim::before {
+  left: 0;
+}
+
+.bp-dim::after {
+  right: 0;
+}
+
+/* Vertical leader from a callout to its subject */
+.bp-leader {
+  width: 1px;
+  background: var(--primary);
+}
+
+/* Numbered callout bubble */
+.bp-callout {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 9999px;
+  border: 1.5px solid var(--primary);
+  color: var(--primary);
+  font-weight: 700;
+  font-size: 0.75rem;
+  background: var(--background);
+}
+
+/* Title block, bottom-right of a sheet */
+.bp-titleblock {
+  border: 1.5px solid var(--primary);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.bp-titleblock > div {
+  padding: 0.5rem 0.75rem;
+  border-right: 1px solid var(--primary);
+  border-bottom: 1px solid var(--primary);
+}
+
+.bp-titleblock > div:nth-child(2n) {
+  border-right: 0;
+}
+
+.bp-titleblock > div:nth-last-child(-n + 2) {
+  border-bottom: 0;
+}
+
+/* Safety-orange CTA, always dark text */
+.bp-cta {
+  background: var(--accent);
+  color: var(--bp-on-accent);
+  border: 1.5px solid var(--bp-on-accent);
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.bp-cta:hover {
+  background: var(--accent-light);
+  transform: translateY(-1px);
+}
+
+/* Hatched band */
+.bp-hatch {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    var(--bp-grid-major) 0 1px,
+    transparent 1px 8px
+  );
+}
+
+/* Inputs: underline on grid, mono caption labels */
+.v-blueprint .bp-input {
+  width: 100%;
+  background: transparent;
+  border: 1.5px solid var(--border);
+  border-radius: 0;
+  padding: 0.75rem 0.9rem;
+  font-family: inherit;
+  font-size: 1rem;
+  color: var(--foreground);
+  transition: border-color 0.2s ease;
+}
+
+.v-blueprint .bp-input:focus {
+  border-color: var(--primary);
+  outline: 3px solid var(--ring);
+  outline-offset: 2px;
+}
+
+/* Scan line that sweeps the hero plate once */
+.bp-scan {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--accent);
+  opacity: 0.85;
+  animation: bp-sweep 2.2s 0.5s cubic-bezier(0.21, 0.47, 0.32, 0.98) forwards;
+}
+
+@keyframes bp-sweep {
+  from {
+    top: 0;
+    opacity: 0.85;
+  }
+  to {
+    top: 100%;
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bp-scan {
+    display: none;
+  }
+  .bp-cta:hover {
+    transform: none;
+  }
+}

@@ -8,6 +8,9 @@ const VARIANTS = [
   { href: "/designs/editorial", label: "Editorial" },
   { href: "/designs/brutalist", label: "Brutalist" },
   { href: "/designs/terminal", label: "Terminal" },
+  { href: "/designs/dashboard", label: "Dashboard" },
+  { href: "/designs/storefront", label: "Storefront" },
+  { href: "/designs/blueprint", label: "Blueprint" },
 ] as const;
 
 export function VariantSwitcher() {
@@ -16,9 +19,9 @@ export function VariantSwitcher() {
   return (
     <nav
       aria-label="Design concept switcher"
-      className="fixed bottom-4 left-1/2 z-50 -translate-x-1/2"
+      className="fixed bottom-4 left-1/2 z-50 w-[calc(100%-2rem)] max-w-3xl -translate-x-1/2"
     >
-      <div className="flex items-center gap-1 rounded-full border-2 border-foreground bg-background p-1 shadow-lg">
+      <div className="flex flex-wrap items-center justify-center gap-1 rounded-3xl border-2 border-foreground bg-background p-1 shadow-lg sm:rounded-full">
         <Link
           href="/designs"
           className="rounded-full px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-muted-foreground transition-colors hover:text-foreground"
