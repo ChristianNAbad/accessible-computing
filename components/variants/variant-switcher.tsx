@@ -11,6 +11,7 @@ const VARIANTS = [
   { href: "/designs/dashboard", label: "Dashboard" },
   { href: "/designs/storefront", label: "Storefront" },
   { href: "/designs/blueprint", label: "Blueprint" },
+  { href: "/designs/classic", label: "Classic" },
 ] as const;
 
 export function VariantSwitcher() {
