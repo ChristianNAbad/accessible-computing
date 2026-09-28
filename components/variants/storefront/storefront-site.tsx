@@ -173,7 +173,7 @@ export function StorefrontSite() {
             type="button"
             onClick={() => setStripPaused((p) => !p)}
             aria-pressed={stripPaused}
-            className="absolute right-3 top-1/2 z-10 -translate-y-1/2 rounded-full border-2 border-background bg-primary px-3 py-1 text-xs font-extrabold uppercase tracking-[0.12em] text-background"
+            className="sf-strip-toggle absolute right-3 top-1/2 z-10 -translate-y-1/2 rounded-full border-2 border-background bg-primary px-3 py-1 text-xs font-extrabold uppercase tracking-[0.12em] text-background"
           >
             {stripPaused ? "Play" : "Pause"}
             <span className="sr-only"> the scrolling banner</span>
