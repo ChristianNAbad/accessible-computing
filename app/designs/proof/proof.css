@@ -1,0 +1,154 @@
+/* ============================================================
+   CONCEPT 9 — THE PROOF
+   Derived from the structure of the DR-80 agency homepage that
+   ranks for both "ai seo agency" and Charlotte SEO terms: proof
+   before pitch. Trust chips under the hero, a review row, metric
+   cards, named tools, a plain-terms trust line. Warm white, leaf
+   green, clay orange. Rubik display · Mulish body.
+   All text pairs >= 7:1 (WCAG 2.2 AAA), both themes.
+   ============================================================ */
+
+.v-proof {
+  --background: #ffffff;
+  --foreground: #14231a;
+  --primary: #155126;
+  --primary-light: #1f6b2e;
+  --accent: #8a3700;
+  --accent-light: #b34a00;
+  --muted: #f1f6ee;
+  --muted-foreground: #425048;
+  --border: #cfdccb;
+  --card: #ffffff;
+  --ring: #155126;
+  --gradient-start: #155126;
+  --gradient-end: #8a3700;
+  --section-alt: #f5f9f2;
+
+  font-family: var(--font-mulish), "Helvetica Neue", Arial, sans-serif;
+  overflow-x: clip;
+}
+
+.dark .v-proof {
+  --background: #0f1a12;
+  --foreground: #eef5ea;
+  --primary: #7fd98f;
+  --primary-light: #9be3a8;
+  --accent: #ffa257;
+  --accent-light: #ffb77a;
+  --muted: #172619;
+  --muted-foreground: #b3c4b5;
+  --border: #2b402f;
+  --card: #132116;
+  --ring: #7fd98f;
+  --gradient-start: #7fd98f;
+  --gradient-end: #ffa257;
+  --section-alt: #13201a;
+}
+
+.pf-display {
+  font-family: var(--font-rubik), "Helvetica Neue", Arial, sans-serif;
+  letter-spacing: -0.02em;
+}
+
+/* Soft leaf-shaped blob behind the hero portrait slot */
+.pf-blob {
+  position: absolute;
+  inset: auto -10% -20% auto;
+  width: 34rem;
+  height: 34rem;
+  border-radius: 62% 38% 55% 45% / 48% 60% 40% 52%;
+  background: var(--muted);
+  z-index: 0;
+}
+
+/* Trust chip row */
+.pf-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  border: 1.5px solid var(--border);
+  background: var(--card);
+  border-radius: 0.5rem;
+  padding: 0.45rem 0.8rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* Review row */
+.pf-review-row {
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  background: var(--section-alt);
+}
+
+/* Metric card with a big number and a soft lift on hover */
+.pf-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  box-shadow: 0 1px 2px rgba(20, 35, 26, 0.06);
+  transition:
+    transform 0.25s cubic-bezier(0.21, 0.47, 0.32, 0.98),
+    box-shadow 0.25s cubic-bezier(0.21, 0.47, 0.32, 0.98);
+}
+
+.pf-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 32px -20px rgba(20, 35, 26, 0.35);
+}
+
+.pf-metric {
+  font-family: var(--font-rubik), "Helvetica Neue", Arial, sans-serif;
+  font-weight: 700;
+  color: var(--primary);
+  letter-spacing: -0.03em;
+}
+
+/* Tool tile: left rule in accent, name in display face */
+.pf-tool {
+  border-left: 4px solid var(--accent);
+  background: var(--card);
+}
+
+/* Portrait placeholder: initials in a rounded frame */
+.pf-portrait {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  border-radius: 1.5rem;
+  background: var(--primary);
+  color: var(--background);
+  font-family: var(--font-rubik), "Helvetica Neue", Arial, sans-serif;
+  font-size: 5rem;
+  font-weight: 700;
+}
+
+/* Inputs */
+.v-proof .pf-input {
+  width: 100%;
+  background: var(--card);
+  border: 1.5px solid var(--muted-foreground);
+  border-radius: 0.6rem;
+  padding: 0.8rem 1rem;
+  font-family: inherit;
+  font-size: 1rem;
+  color: var(--foreground);
+  transition: border-color 0.2s ease;
+}
+
+.v-proof .pf-input:focus {
+  border-color: var(--primary);
+  outline: 3px solid var(--ring);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pf-card,
+  .pf-card:hover {
+    transform: none;
+    transition: none;
+  }
+}

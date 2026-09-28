@@ -1,0 +1,244 @@
+/* ============================================================
+   CONCEPT 10 — THE CONVERSATION
+   Derived from the structure of the page ranking #3 for
+   "ai seo agency": black hero with the lead form inside it, a
+   stat strip, a before/now contrast, an acronym grid and a
+   comparison table. Black, lime, magenta. Unbounded display ·
+   Hanken Grotesk body.
+   All text pairs >= 7:1 (WCAG 2.2 AAA), both themes.
+   ============================================================ */
+
+.v-conversation {
+  --background: #f7f7f4;
+  --foreground: #0a0a0a;
+  --primary: #2e5200;
+  --primary-light: #3f6d00;
+  --accent: #8e0f6e;
+  --accent-light: #ad1f89;
+  --muted: #ebebe4;
+  --muted-foreground: #474747;
+  --border: #c9c9c0;
+  --card: #ffffff;
+  --ring: #2e5200;
+  --gradient-start: #2e5200;
+  --gradient-end: #8e0f6e;
+  --section-alt: #efefe8;
+  /* Hero stays black in both themes */
+  --cv-hero-bg: #0a0a0a;
+  --cv-hero-fg: #f2f2ec;
+  --cv-hero-muted: #b5b5ad;
+  --cv-lime: #c6ff3d;
+  --cv-magenta: #ff7ad9;
+  --cv-hero-line: #262626;
+  --cv-hero-card: #111111;
+
+  font-family: var(--font-hanken), "Helvetica Neue", Arial, sans-serif;
+  overflow-x: clip;
+}
+
+.dark .v-conversation {
+  --background: #0a0a0a;
+  --foreground: #f2f2ec;
+  --primary: #c6ff3d;
+  --primary-light: #d6ff70;
+  --accent: #ff7ad9;
+  --accent-light: #ff9ce3;
+  --muted: #151515;
+  --muted-foreground: #b5b5ad;
+  --border: #2b2b2b;
+  --card: #111111;
+  --ring: #c6ff3d;
+  --gradient-start: #c6ff3d;
+  --gradient-end: #ff7ad9;
+  --section-alt: #0f0f0f;
+}
+
+.cv-display {
+  font-family: var(--font-unbounded), "Helvetica Neue", Arial, sans-serif;
+  letter-spacing: -0.03em;
+}
+
+/* Hero, always black */
+.cv-hero {
+  background: var(--cv-hero-bg);
+  color: var(--cv-hero-fg);
+  position: relative;
+  overflow: hidden;
+}
+
+.cv-hero-muted {
+  color: var(--cv-hero-muted);
+}
+
+.cv-lime {
+  color: var(--cv-lime);
+}
+
+.cv-magenta {
+  color: var(--cv-magenta);
+}
+
+/* Conversation bubbles as a decorative backdrop */
+.cv-bubbles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(22rem 22rem at 90% 10%, rgba(198, 255, 61, 0.12), transparent 60%),
+    radial-gradient(18rem 18rem at 70% 95%, rgba(255, 122, 217, 0.12), transparent 60%);
+}
+
+/* Hero form card */
+.cv-form-card {
+  background: var(--cv-hero-card);
+  border: 1px solid var(--cv-hero-line);
+  border-radius: 1.25rem;
+}
+
+.v-conversation .cv-hero-input {
+  width: 100%;
+  background: #1a1a1a;
+  border: 1.5px solid #8a8a82;
+  border-radius: 0.75rem;
+  padding: 0.85rem 1rem;
+  font-family: inherit;
+  font-size: 1rem;
+  color: var(--cv-hero-fg);
+  transition: border-color 0.2s ease;
+}
+
+.v-conversation .cv-hero-input::placeholder {
+  color: #a8a8a0;
+}
+
+.v-conversation .cv-hero-input:focus {
+  border-color: var(--cv-lime);
+  outline: 3px solid var(--cv-lime);
+  outline-offset: 2px;
+}
+
+/* Lime pill CTA, dark text, both themes */
+.cv-cta {
+  background: var(--cv-lime);
+  color: #0a0a0a;
+  border-radius: 9999px;
+  font-weight: 700;
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.cv-cta:hover {
+  transform: translateY(-1px);
+  background: #d6ff70;
+}
+
+/* Magenta pill for the secondary in the hero */
+.cv-cta--magenta {
+  background: var(--cv-magenta);
+}
+
+.cv-cta--magenta:hover {
+  background: #ff9ce3;
+}
+
+/* Stat strip */
+.cv-strip {
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.cv-strip > div + div {
+  border-left: 1px solid var(--border);
+}
+
+@media (max-width: 639px) {
+  .cv-strip > div + div {
+    border-left: 0;
+    border-top: 1px solid var(--border);
+  }
+}
+
+/* Before / now panels */
+.cv-before {
+  background: var(--muted);
+  border: 1px dashed var(--muted-foreground);
+}
+
+.cv-now {
+  background: var(--card);
+  border: 2px solid var(--primary);
+}
+
+/* Acronym tiles */
+.cv-acro {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+}
+
+.cv-acro strong {
+  font-family: var(--font-unbounded), "Helvetica Neue", Arial, sans-serif;
+  font-size: 1.75rem;
+  color: var(--primary);
+}
+
+/* Comparison table */
+.cv-table th,
+.cv-table td {
+  border-bottom: 1px solid var(--border);
+  padding: 0.9rem 1rem;
+  vertical-align: top;
+}
+
+.cv-table th[scope="col"] {
+  border-bottom: 2px solid var(--foreground);
+  text-align: left;
+}
+
+/* Body inputs */
+.v-conversation .cv-input {
+  width: 100%;
+  background: var(--card);
+  border: 1.5px solid var(--muted-foreground);
+  border-radius: 0.75rem;
+  padding: 0.85rem 1rem;
+  font-family: inherit;
+  font-size: 1rem;
+  color: var(--foreground);
+  transition: border-color 0.2s ease;
+}
+
+.v-conversation .cv-input:focus {
+  border-color: var(--primary);
+  outline: 3px solid var(--ring);
+  outline-offset: 2px;
+}
+
+/* Blinking caret after the hero headline, stops after a few cycles */
+.cv-caret::after {
+  content: "";
+  display: inline-block;
+  width: 0.08em;
+  height: 0.9em;
+  margin-left: 0.08em;
+  vertical-align: -0.1em;
+  background: var(--cv-lime);
+  animation: cv-blink 1s steps(1, end) 4;
+}
+
+@keyframes cv-blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cv-caret::after {
+    animation: none;
+  }
+  .cv-cta,
+  .cv-cta:hover {
+    transform: none;
+  }
+}

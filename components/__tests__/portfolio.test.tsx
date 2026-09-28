@@ -15,7 +15,7 @@ describe("Portfolio", () => {
     expect(screen.getByText("Bank of America")).toBeInTheDocument();
     expect(screen.getByText("CannaBuddy.com")).toBeInTheDocument();
     expect(screen.getByText("DHS / USCIS")).toBeInTheDocument();
-    expect(screen.getByText("PurelyFound.com")).toBeInTheDocument();
+    expect(screen.getByText("Purely Found")).toBeInTheDocument();
   });
 
   it("renders technology tags", () => {

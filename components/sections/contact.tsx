@@ -53,8 +53,8 @@ export function Contact() {
               Let&apos;s <span className="gradient-text">Connect</span>
             </h2>
             <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
-              Have a project in mind? Need an accessibility audit? We&apos;d
-              love to hear from you.
+              Send us your site and the one number you want to move. Your free
+              audit is reviewed by your account manager before it is sent.
             </p>
           </div>
         </ScrollReveal>
@@ -145,7 +145,7 @@ export function Contact() {
 
               {status === "sent" && (
                 <p className="text-sm font-medium text-green-600" role="status">
-                  Message sent! We&apos;ll be in touch soon.
+                  Message sent! Your account manager will follow up soon.
                 </p>
               )}
               {status === "error" && (
@@ -162,9 +162,10 @@ export function Contact() {
               <div>
                 <h3 className="text-lg font-bold">Get in Touch</h3>
                 <p className="mt-2 text-sm text-muted-foreground">
-                  Whether you need a full website build, an accessibility audit,
-                  or want to explore how agentic AI can accelerate your
-                  development — we&apos;re here to help.
+                  Content, search, email and paid for brands that sell online,
+                  with a dedicated account manager and a small team behind
+                  every account. Tell us what is stuck and we will take it
+                  from there.
                 </p>
               </div>
 

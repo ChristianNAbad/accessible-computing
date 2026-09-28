@@ -21,8 +21,9 @@ export function Footer() {
               </span>
             </Link>
             <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
-              Full-service web development and accessibility consulting.
-              Making the web usable for everyone since {COMPANY.founded}.
+              A small marketing agency for brands that sell online, with a
+              dedicated account manager on every account. Making the web work
+              for everyone since {COMPANY.founded}.
             </p>
             <div className="mt-4 inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/5 px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-primary">
               <Accessibility className="h-3.5 w-3.5" aria-hidden="true" />

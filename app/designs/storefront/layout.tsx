@@ -1,12 +1,16 @@
 import type { Metadata } from "next";
-import { Big_Shoulders, Albert_Sans } from "next/font/google";
+import { Barlow_Condensed, Albert_Sans } from "next/font/google";
 import { VariantSwitcher } from "@/components/variants/variant-switcher";
 import "./storefront.css";
 
-const bigShoulders = Big_Shoulders({
+/* Barlow Condensed rather than Big Shoulders: Next 16.2's font tooling has
+   no fallback metrics for the merged Big Shoulders family and its Google
+   CSS intermittently returns file URLs the loader cannot parse, which
+   broke a CI build. */
+const barlowCondensed = Barlow_Condensed({
   subsets: ["latin"],
   weight: ["700", "800", "900"],
-  variable: "--font-big-shoulders",
+  variable: "--font-storefront-display",
 });
 
 const albertSans = Albert_Sans({
@@ -26,7 +30,7 @@ export default function StorefrontLayout({
 }>) {
   return (
     <div
-      className={`v-storefront ${bigShoulders.variable} ${albertSans.variable} min-h-screen bg-background text-foreground`}
+      className={`v-storefront ${barlowCondensed.variable} ${albertSans.variable} min-h-screen bg-background text-foreground`}
     >
       {children}
       <VariantSwitcher />

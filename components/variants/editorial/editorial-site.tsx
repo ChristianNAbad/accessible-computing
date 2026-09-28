@@ -132,20 +132,20 @@ export function EditorialSite() {
               variants={item}
               className="mx-auto mt-8 max-w-2xl text-center text-lg leading-relaxed text-muted-foreground md:text-xl"
             >
-              Full-service web development, accessibility consulting, and
-              agentic AI engineering — practiced with the patience of a
-              thirty-year craft.
+              Content, search, email and paid for brands that sell online.
+              A dedicated account manager, a working marketing expert, owns
+              every account and reads every number.
             </motion.p>
 
             <motion.p
               variants={item}
               className="mt-8 text-center text-sm uppercase tracking-[0.2em] text-muted-foreground"
             >
-              By{" "}
+              Founded by{" "}
               <span className="font-semibold text-foreground">
                 Christian N. Abad
               </span>{" "}
-              · President & Founder
+              · Staffed by a small team of marketing experts
             </motion.p>
 
             <motion.div
@@ -267,29 +267,27 @@ export function EditorialSite() {
               <ScrollReveal direction="left" className="lg:col-span-3">
                 <div className="space-y-5 text-lg leading-relaxed text-foreground">
                   <p className="ed-dropcap">
-                    Founded in 2005 by Christian N. Abad, Accessible Computing
-                    was born from a simple conviction: the web should work for
-                    everyone. The conviction has roots — a degree from
-                    Appalachian State pairing Psychology with Computer Science.
-                    Understanding people has shaped how Christian builds
-                    software ever since.
+                    Every account here has a dedicated account manager: a
+                    working marketing expert who owns the plan, reviews every
+                    piece before it ships, and writes the monthly report in
+                    plain language. One person, reachable, accountable for the
+                    number you hired us to move.
                   </p>
                   <p>
-                    At Bank of America, as VP and Web Accessibility Team
-                    Manager, he led compliance for more than 5,000
-                    customer-facing pages, setting enterprise-wide WCAG and
-                    Section 508 standards. That discipline became the
-                    foundation of this practice — carried through federal work
-                    for DHS/USCIS and the US Navy.
+                    Behind that manager is a small team covering content,
+                    search, email and paid. We take one client per product
+                    category, so the people working your account are never
+                    working your competitor&apos;s.
                   </p>
                   <p>
-                    Today the same pioneering instinct is aimed at{" "}
-                    <strong>agentic AI development</strong>. With Claude Code
-                    and autonomous workflows, Christian ships what once took
-                    whole teams — the engine behind{" "}
-                    <strong>CannaBuddy.com</strong>, the award-winning hemp THC
-                    beverage brand he co-founded under Fueling My Dreams and
-                    leads as CEO.
+                    The founder, Christian N. Abad, is a thirty-year engineer
+                    who led web accessibility for more than 5,000 pages at
+                    Bank of America and is Founder and CEO of{" "}
+                    <strong>CannaBuddy</strong> and{" "}
+                    <strong>Purely Found</strong>. Both brands run on the same
+                    playbook your account manager uses, and the team ships it
+                    with the <strong>agentic AI development</strong> practice
+                    he built the company around.
                   </p>
                 </div>
 
@@ -461,9 +459,10 @@ export function EditorialSite() {
               <ScrollReveal direction="right">
                 <div className="space-y-8">
                   <p className="text-lg leading-relaxed text-muted-foreground">
-                    A full build, an accessibility audit, or an exploration of
-                    what agentic AI can do for your delivery schedule — the
-                    correspondence starts here.
+                    Send us your site and the one number you want to move. We
+                    reply with a free audit of your search gaps, your email
+                    revenue ceiling and how the AI answer engines describe you,
+                    reviewed by your account manager before it is sent.
                   </p>
 
                   <dl className="space-y-4">
@@ -642,7 +641,7 @@ function EditorialContactForm() {
 
       {status === "sent" && (
         <p className="text-sm font-semibold italic" role="status">
-          Received with thanks — we’ll reply shortly.
+          Received with thanks. Your account manager will reply shortly.
         </p>
       )}
       {status === "error" && (

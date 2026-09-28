@@ -17,19 +17,19 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(COMPANY.url),
   title: {
-    default: `${COMPANY.name} | Web Accessibility & Development`,
+    default: `${COMPANY.name} | Marketing for Brands That Sell Online`,
     template: `%s | ${COMPANY.shortName}`,
   },
   description:
-    "Full-service web development, accessibility consulting, and AI-powered solutions. WCAG 2.2 AAA compliant. 30+ years of expertise making the web accessible for everyone.",
+    "A small marketing agency for brands that sell online: content, search, email, paid and AI-search visibility, with a dedicated account manager on every account. Built to WCAG 2.2 AAA.",
   keywords: [
-    "web accessibility",
-    "WCAG 2.2",
-    "Section 508",
-    "web development",
-    "accessibility consulting",
-    "ADA compliance",
-    "agentic AI",
+    "marketing agency for ecommerce brands",
+    "outsourced marketing department",
+    "ecommerce SEO agency",
+    "Klaviyo email marketing agency",
+    "Google Ads management",
+    "AI search visibility",
+    "generative engine optimization",
     "Charlotte NC",
     "Matthews NC",
   ],
@@ -40,20 +40,56 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: COMPANY.url,
     siteName: COMPANY.name,
-    title: `${COMPANY.name} | Web Accessibility & Development`,
+    title: `${COMPANY.name} | Marketing for Brands That Sell Online`,
     description:
-      "Full-service web development and accessibility consulting. 30+ years making the web usable for everyone.",
+      "A small marketing agency for brands that sell online, with a dedicated account manager on every account.",
   },
   twitter: {
     card: "summary_large_image",
-    title: `${COMPANY.name} | Web Accessibility & Development`,
+    title: `${COMPANY.name} | Marketing for Brands That Sell Online`,
     description:
-      "Full-service web development and accessibility consulting. 30+ years making the web usable for everyone.",
+      "A small marketing agency for brands that sell online, with a dedicated account manager on every account.",
   },
   robots: {
     index: true,
     follow: true,
   },
+};
+
+/* Organization + WebSite schema. Lived on the root page until the root
+   became a redirect; the layout renders it on every route instead. */
+const JSON_LD = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      name: COMPANY.name,
+      url: COMPANY.url,
+      foundingDate: String(COMPANY.founded),
+      founder: {
+        "@type": "Person",
+        name: "Christian N. Abad",
+        url: COMPANY.linkedin,
+      },
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Matthews",
+        addressRegion: "NC",
+        postalCode: "28105",
+        addressCountry: "US",
+      },
+      contactPoint: {
+        "@type": "ContactPoint",
+        telephone: COMPANY.phone,
+        contactType: "customer service",
+      },
+    },
+    {
+      "@type": "WebSite",
+      name: COMPANY.name,
+      url: COMPANY.url,
+    },
+  ],
 };
 
 export default function RootLayout({
@@ -68,6 +104,12 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable}`}
     >
       <body className="min-h-screen bg-background text-foreground antialiased">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(JSON_LD).replace(/</g, "\\u003c"),
+          }}
+        />
         <ThemeProvider>
           <a href="#main-content" className="skip-link">
             Skip to main content

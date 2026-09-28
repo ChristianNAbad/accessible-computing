@@ -100,7 +100,7 @@ export function TerminalSite() {
                 <span className="tm-dot" />
                 <span className="tm-dot" />
                 <span className="tm-mono ml-2 text-xs text-muted-foreground">
-                  christian@accessible-computing — est. {COMPANY.founded}
+                  team@accessible-computing — est. {COMPANY.founded}
                 </span>
               </div>
 
@@ -110,8 +110,8 @@ export function TerminalSite() {
                     <span className="text-primary">$</span> whoami
                   </p>
                   <p className="mt-1 text-muted-foreground">
-                    Christian N. Abad — President & Founder. 30+ years shipping
-                    for the web.
+                    Your dedicated account manager, plus a small team: content,
+                    search, email, paid. Founded by Christian N. Abad.
                   </p>
                 </motion.div>
 
@@ -128,9 +128,9 @@ export function TerminalSite() {
                     work for everyone.
                   </h1>
                   <p className="mt-4 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-                    Web development, accessibility consulting, and agentic AI
-                    engineering — from Solaris workstations in 1995 to
-                    autonomous coding agents today.
+                    Marketing for brands that sell online: content, search,
+                    email and paid. A dedicated account manager, a working
+                    marketing expert, runs every account.
                   </p>
                 </motion.div>
 
@@ -260,28 +260,31 @@ export function TerminalSite() {
                     <strong className="text-foreground">
                       the web should work for everyone.
                     </strong>{" "}
-                    His Appalachian State degree pairs Psychology with Computer
-                    Science — people first, then machines — and that lens has
-                    shaped three decades of engineering.
-                  </p>
-                  <p>
-                    The career boots in 1995 at Mitsubishi Semiconductors — C,
-                    Solaris, X-Motif. At Bank of America he rose to VP leading
-                    web accessibility across{" "}
-                    <strong className="text-foreground">5,000+ pages</strong>,
-                    then built ADA-compliant systems for DHS/USCIS and the US
-                    Navy.
-                  </p>
-                  <p>
-                    Today he runs{" "}
+                    Today every account has a{" "}
                     <strong className="text-foreground">
-                      agentic AI workflows with Claude Code
+                      dedicated account manager
+                    </strong>
+                    : a working marketing expert who owns the plan, reviews
+                    every deliverable, and writes the monthly report.
+                  </p>
+                  <p>
+                    Behind the manager is a small team covering content,
+                    search, email and paid. One client per product category,
+                    so nobody on your account is also working for your
+                    competitor.
+                  </p>
+                  <p>
+                    The founder is a thirty-year engineer: C on Solaris in
+                    1995, VP of web accessibility for{" "}
+                    <strong className="text-foreground">5,000+ pages</strong>{" "}
+                    at Bank of America, ADA-compliant systems for DHS/USCIS and
+                    the US Navy. He is Founder and CEO of CannaBuddy and Purely
+                    Found, both run on the same playbook, and the team ships
+                    with{" "}
+                    <strong className="text-foreground">
+                      agentic AI workflows in Claude Code
                     </strong>{" "}
-                    — one engineer shipping what once took teams. It&apos;s the
-                    engine behind CannaBuddy.com, the award-winning hemp THC
-                    beverage brand he co-founded under Fueling My Dreams and
-                    leads as CEO, and a production fleet of autonomous bots
-                    running on Railway.
+                    plus a production fleet of autonomous bots on Railway.
                   </p>
                 </div>
                 <div className="tm-mono mt-8 flex flex-wrap gap-4 text-sm">
@@ -440,8 +443,8 @@ export function TerminalSite() {
                 Connection established
               </h2>
               <p className="mt-4 max-w-xl text-base leading-relaxed text-muted-foreground">
-                A build, an audit, or an agentic AI pilot — describe it below
-                and it lands directly with the engineer.
+                Describe your store and the number that is stuck. A free audit
+                comes back, reviewed by your account manager before it is sent.
               </p>
             </ScrollReveal>
 
@@ -652,7 +655,7 @@ function TerminalContactForm() {
 
       {status === "sent" && (
         <p className="tm-mono text-sm font-bold text-primary" role="status">
-          [✓] message delivered — reply incoming.
+          [✓] message delivered. your account manager will reply.
         </p>
       )}
       {status === "error" && (
