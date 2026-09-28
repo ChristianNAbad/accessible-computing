@@ -162,10 +162,13 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .db-dot::after,
+  .db-dot::after {
+    animation: none;
+    opacity: 0;
+  }
+  /* Sparkline stays visible, just not drawn in */
   .db-spark path {
     animation: none;
     stroke-dashoffset: 0;
-    opacity: 0;
   }
 }

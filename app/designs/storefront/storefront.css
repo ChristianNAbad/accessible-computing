@@ -135,9 +135,9 @@
   animation: sf-scroll 32s linear infinite;
 }
 
-.sf-strip[data-paused="true"] .sf-strip-track,
-.sf-strip:hover .sf-strip-track,
-.sf-strip:focus-within .sf-strip-track {
+/* The button is the only pause mechanism, so aria-pressed always matches
+   the visible state. No hover or focus pausing. */
+.sf-strip[data-paused="true"] .sf-strip-track {
   animation-play-state: paused;
 }
 
@@ -198,6 +198,10 @@
   .sf-strip-track,
   .sf-wobble {
     animation: none;
+  }
+  /* Nothing moves, so there is nothing to pause */
+  .sf-strip-toggle {
+    display: none;
   }
   .sf-card,
   .sf-card:hover {
