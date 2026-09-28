@@ -1,5 +1,5 @@
-import { describe, it, expect } from "vitest";
-import { render, screen, within } from "@testing-library/react";
+import { describe, it, expect, vi, afterEach } from "vitest";
+import { render, screen, within, fireEvent, waitFor } from "@testing-library/react";
 import { AnswerSite } from "@/components/variants/answer/answer-site";
 import { ProofSite } from "@/components/variants/proof/proof-site";
 import { ConversationSite } from "@/components/variants/conversation/conversation-site";
@@ -67,7 +67,7 @@ describe.each(CASES)("$name design concept", ({ Site, heading, submit, messageLa
   it("speaks as a small agency with a dedicated account manager", () => {
     render(<Site />);
     expect(screen.getAllByText(/dedicated account manager/i).length).toBeGreaterThan(0);
-    expect(screen.getAllByText(/Purely Found/).length).toBeGreaterThan(0);
+    expect(screen.getAllByText(/CannaBuddy and Purely Found/).length).toBeGreaterThan(0);
   });
 
   it("exposes landmark structure: main, contentinfo, main navigation", () => {
@@ -79,13 +79,26 @@ describe.each(CASES)("$name design concept", ({ Site, heading, submit, messageLa
 });
 
 describe("Conversation hero form", () => {
-  it("posts email and website plus hidden name and message so the API accepts it", () => {
+  afterEach(() => {
+    vi.unstubAllGlobals();
+  });
+
+  it("posts the site URL inside the message, since the API keeps only name, email and message", async () => {
+    const fetchMock = vi.fn().mockResolvedValue({ ok: true });
+    vi.stubGlobal("fetch", fetchMock);
     render(<ConversationSite />);
     const email = screen.getByLabelText(/^work email/i);
     const form = email.closest("form") as HTMLFormElement;
-    const data = new FormData(form);
-    expect(data.has("name")).toBe(true);
-    expect(data.has("message")).toBe(true);
-    expect(form.querySelector('input[name="website"]')).toHaveAttribute("required");
+    // Two forms carry a website field; scope to the hero form.
+    const website = within(form).getByLabelText(/website/i);
+    expect(website).toHaveAttribute("required");
+    fireEvent.change(email, { target: { value: "owner@example.com" } });
+    fireEvent.change(website, { target: { value: "https://example.com" } });
+    fireEvent.submit(form);
+    await waitFor(() => expect(fetchMock).toHaveBeenCalledTimes(1));
+    const body = JSON.parse(fetchMock.mock.calls[0][1].body as string);
+    expect(body.email).toBe("owner@example.com");
+    expect(body.name).toBeTruthy();
+    expect(body.message).toContain("https://example.com");
   });
 });

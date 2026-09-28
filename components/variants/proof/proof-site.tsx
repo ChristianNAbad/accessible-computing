@@ -15,7 +15,7 @@ import {
   STATS,
 } from "@/lib/constants";
 
-const CHIPS = ["Since 2005", "WCAG 2.2 AAA", "Klaviyo", "Shopify", "WooCommerce", "Google Ads"];
+const PLATFORMS = ["Klaviyo", "Shopify", "WooCommerce", "Google Ads"];
 
 const TOOLS = [
   {
@@ -28,14 +28,14 @@ const TOOLS = [
   },
   {
     name: "The Client Dashboard",
-    body: "Rankings, traffic, content shipped, email performance and AI citations, live, without the jargon.",
+    body: "Rankings, traffic, content shipped, email performance and AI citations in one view, updated monthly, without the jargon.",
   },
 ];
 
 const PROMISES = [
   { title: "One client per category", body: "Your account manager never works for a competitor of yours." },
   { title: "A person reviews everything", body: "Nothing ships to your site, your list or your ad account without a human sign-off." },
-  { title: "Sixty-day out after month three", body: "Twelve-month terms, with a door. Almost nobody uses it." },
+  { title: "Sixty-day out after month three", body: "Twelve-month terms, with a door." },
 ];
 
 export function ProofSite() {
@@ -114,30 +114,35 @@ export function ProofSite() {
                   See the work
                 </a>
               </motion.div>
-              <motion.ul variants={item} className="mt-8 flex flex-wrap gap-2" aria-label="Credentials and platforms">
-                {CHIPS.map((c) => (
-                  <li key={c} className="pf-chip">{c}</li>
-                ))}
-              </motion.ul>
+              <motion.div variants={item} className="mt-8">
+                <p id="pf-platforms-label" className="text-xs font-bold uppercase tracking-[0.14em] text-muted-foreground">
+                  Platforms we work in
+                </p>
+                <ul className="mt-2 flex flex-wrap gap-2" aria-labelledby="pf-platforms-label">
+                  {PLATFORMS.map((c) => (
+                    <li key={c} className="pf-chip">{c}</li>
+                  ))}
+                </ul>
+              </motion.div>
             </div>
             <motion.div variants={item} className="relative lg:col-span-5">
               <div className="mx-auto max-w-sm">
                 <div className="pf-portrait" role="img" aria-label="Portrait placeholder for your account manager">
                   <span aria-hidden="true">AM</span>
                 </div>
-                <figure className="pf-card -mt-10 ml-6 mr-2 p-5">
-                  <blockquote className="text-sm leading-relaxed">
-                    “You will know your account manager by name after the first call. They run the plan, review the work, and write the report.”
-                  </blockquote>
-                  <figcaption className="mt-3 text-xs font-bold text-muted-foreground">How every account here works</figcaption>
-                </figure>
+                <div className="pf-card -mt-10 ml-6 mr-2 p-5">
+                  <p className="text-xs font-bold uppercase tracking-[0.14em] text-muted-foreground">How every account here works</p>
+                  <p className="mt-2 text-sm leading-relaxed">
+                    You will know your account manager by name after the first call. They run the plan, review the work, and write the report.
+                  </p>
+                </div>
               </div>
             </motion.div>
           </motion.div>
         </section>
 
         {/* ============ Review row ============ */}
-        <section aria-label="Reviews and track record" className="pf-review-row px-6 py-8">
+        <section aria-label="Track record" className="pf-review-row px-6 py-8">
           <dl className="mx-auto grid max-w-7xl gap-6 sm:grid-cols-3">
             {STATS.map((stat) => (
               <div key={stat.label} className="flex flex-col items-center text-center">
@@ -155,7 +160,7 @@ export function ProofSite() {
         <section aria-labelledby="testimonials-heading" className="px-6 py-20 lg:py-24">
           <div className="mx-auto max-w-7xl">
             <ScrollReveal>
-              <h2 id="testimonials-heading" className="pf-display text-center text-4xl font-bold sm:text-5xl">Our clients get results</h2>
+              <h2 id="testimonials-heading" className="pf-display text-center text-4xl font-bold sm:text-5xl">What clients say</h2>
               <p className="mx-auto mt-4 max-w-2xl text-center text-lg text-muted-foreground">
                 Do not take our word for it. Here is what the people we work with say.
               </p>
@@ -164,8 +169,7 @@ export function ProofSite() {
               {TESTIMONIALS.map((t, i) => (
                 <ScrollReveal key={i} delay={prefersReducedMotion ? 0 : i * 0.08}>
                   <figure className="pf-card h-full p-7">
-                    <p className="pf-stars text-lg" aria-hidden="true">★★★★★</p>
-                    <blockquote className="mt-3 text-lg leading-relaxed">“{t.quote}”</blockquote>
+                    <blockquote className="text-lg leading-relaxed">“{t.quote}”</blockquote>
                     <figcaption className="mt-5 border-t border-border pt-4 text-sm">
                       <cite className="font-extrabold not-italic">{t.name}</cite>
                       <span className="text-muted-foreground">, {t.title}, {t.company}</span>

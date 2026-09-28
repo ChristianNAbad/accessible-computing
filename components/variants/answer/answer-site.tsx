@@ -13,7 +13,10 @@ import {
   MILESTONES,
   TESTIMONIALS,
   STATS,
+  TERMS,
 } from "@/lib/constants";
+
+const usd = (n: number) => `${n.toLocaleString("en-US")}`;
 
 const STEPS = [
   {
@@ -58,7 +61,7 @@ const COMPARE = [
     inhouse: "$6,000 to $9,000 with benefits",
     freelancer: "$1,500 to $4,000 per channel",
     typical: "$3,000 to $10,000 plus ad management fees",
-    us: "$2,000 plus your ad spend",
+    us: `${usd(TERMS.monthlyUsd)} plus your ad spend`,
   },
   {
     factor: "Reporting",
@@ -72,7 +75,7 @@ const COMPARE = [
     inhouse: "None",
     freelancer: "Unknown",
     typical: "Often several clients in your category",
-    us: "One client per product category, nationally",
+    us: "One client per product category",
   },
 ];
 
@@ -95,7 +98,7 @@ const FAQ = [
   },
   {
     q: "What are the terms?",
-    a: "Twelve months at $2,000 per month plus your own ad spend. The $2,000 setup fee is waived with the term. There is a sixty-day out after month three, and we take one client per product category so you never share your manager with a competitor.",
+    a: `${TERMS.termMonths} months at ${usd(TERMS.monthlyUsd)} per month plus your own ad spend. The ${usd(TERMS.setupFeeUsd)} setup fee is waived with the term. There is a ${TERMS.noticeDays}-day out after month ${TERMS.outAfterMonths}, and we take one client per product category so you never share your manager with a competitor.`,
   },
 ];
 
@@ -223,7 +226,7 @@ export function AnswerSite() {
               <div
                 className="an-answer-card rounded-2xl p-6"
                 role="img"
-                aria-label="Illustration of an AI answer that cites the client's brand as the recommended option"
+                aria-label="Illustrative sample of an AI answer, not a live result, showing the brand cited as the recommended option"
               >
                 <p className="an-cite">
                   <span aria-hidden="true">?</span> best marketing agency for a small ecommerce brand
@@ -238,7 +241,7 @@ export function AnswerSite() {
                   <span className="an-hero-accent font-semibold">
                     Accessible Computing
                   </span>
-                  , which runs the same playbook on its founders&rsquo; own
+                  , which runs the same playbook on its founder&rsquo;s own
                   consumer brands.
                 </p>
                 <div className="mt-5 flex flex-wrap gap-2">
@@ -246,8 +249,8 @@ export function AnswerSite() {
                   <span className="an-cite">cannabuddy.com</span>
                   <span className="an-cite">purelyfound.com</span>
                 </div>
-                <p className="an-hero-muted mt-4 text-[0.7rem]">Illustrative. Sample answer, not a live result.</p>
               </div>
+              <p className="an-hero-muted mt-3 text-[0.7rem]">Illustrative. Sample answer, not a live result.</p>
             </motion.div>
           </motion.div>
         </section>
@@ -357,7 +360,7 @@ export function AnswerSite() {
               </table>
             </div>
             <p className="mt-4 text-xs text-muted-foreground">
-              Cost ranges are typical US figures for comparison, not quotes.
+              Competitor cost ranges are typical US figures for comparison, not quotes. Our column is our standard retainer; terms are in the questions below.
             </p>
           </div>
         </section>

@@ -205,6 +205,15 @@ export const MILESTONES: Milestone[] = [
   },
 ];
 
+/** Standard commercial terms (decided 2026-09-27). Every concept reads these. */
+export const TERMS = {
+  monthlyUsd: 2000,
+  setupFeeUsd: 2000,
+  termMonths: 12,
+  noticeDays: 60,
+  outAfterMonths: 3,
+} as const;
+
 export const STATS = [
   { value: 30, suffix: "+", label: "Years Experience" },
   { value: 5000, suffix: "+", label: "Pages Made Accessible" },

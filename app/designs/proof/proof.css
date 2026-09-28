@@ -23,7 +23,6 @@
   --gradient-start: #155126;
   --gradient-end: #8a3700;
   --section-alt: #f5f9f2;
-  --pf-star: #8a3700;
 
   font-family: var(--font-mulish), "Helvetica Neue", Arial, sans-serif;
   overflow-x: clip;
@@ -44,7 +43,6 @@
   --gradient-start: #7fd98f;
   --gradient-end: #ffa257;
   --section-alt: #13201a;
-  --pf-star: #ffa257;
 }
 
 .pf-display {
@@ -83,11 +81,6 @@
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
   background: var(--section-alt);
-}
-
-.pf-stars {
-  color: var(--pf-star);
-  letter-spacing: 0.1em;
 }
 
 /* Metric card with a big number and a soft lift on hover */

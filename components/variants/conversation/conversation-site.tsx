@@ -366,8 +366,17 @@ export function ConversationSite() {
 /* Short form in the hero: email + site. The body form collects the rest. */
 function ConversationHeroForm() {
   const { status, handleSubmit } = useContactForm();
+  // The contact API keeps name, email and message only, so the URL rides
+  // inside the message; otherwise the one thing this form asks for is lost.
+  function submitWithSite(e: React.FormEvent<HTMLFormElement>) {
+    const form = e.currentTarget;
+    const site = (form.elements.namedItem("website") as HTMLInputElement | null)?.value ?? "";
+    const message = form.elements.namedItem("message") as HTMLInputElement | null;
+    if (message) message.value = `Free visibility audit requested from the hero form for ${site}`;
+    handleSubmit(e);
+  }
   return (
-    <form onSubmit={handleSubmit} className="space-y-4">
+    <form onSubmit={submitWithSite} className="space-y-4">
       <div>
         <label htmlFor="cv-hero-email" className="block text-sm font-semibold">
           Work email <span aria-hidden="true">*</span><span className="sr-only">(required)</span>
@@ -380,8 +389,8 @@ function ConversationHeroForm() {
         </label>
         <input id="cv-hero-website" name="website" type="url" inputMode="url" required placeholder="https://" autoComplete="url" className="cv-hero-input mt-1.5" />
       </div>
-      <input type="hidden" name="name" value="Hero audit request" />
-      <input type="hidden" name="message" value="Free visibility audit requested from the hero form." />
+      <input type="hidden" name="name" defaultValue="Hero audit request" />
+      <input type="hidden" name="message" defaultValue="Free visibility audit requested from the hero form." />
       <button type="submit" disabled={status === "sending"} className="cv-cta inline-flex h-12 w-full items-center justify-center px-6 text-sm disabled:opacity-50">
         {status === "sending" ? "Sending…" : "Get my free audit"}
       </button>
