@@ -15,15 +15,19 @@ import {
   STATS,
 } from "@/lib/constants";
 
-const SPECS = [
-  { k: "Sheet", v: "01 of 06" },
-  { k: "Scale", v: "1 : 1" },
-  { k: "Drawn by", v: "C. N. Abad" },
-  { k: "Rev", v: String(new Date().getFullYear()) },
-] as const;
+function specs(year: number) {
+  return [
+    { k: "Sheet", v: "01 of 07" },
+    { k: "Scale", v: "1 : 1" },
+    { k: "Drawn by", v: "C. N. Abad" },
+    { k: "Rev", v: String(year) },
+  ] as const;
+}
 
 export function BlueprintSite() {
   const prefersReducedMotion = useReducedMotion();
+  const year = new Date().getFullYear();
+  const SPECS = specs(year);
 
   const container = {
     hidden: { opacity: 0 },
@@ -108,7 +112,7 @@ export function BlueprintSite() {
               variants={item}
               className="bp-mono text-xs uppercase text-primary"
             >
-              Plate 01 · Marketing system · Rev {new Date().getFullYear()}
+              Plate 01 · Marketing system · Rev {year}
             </motion.p>
 
             <div className="mt-6 grid gap-12 lg:grid-cols-12 lg:items-start">
@@ -151,14 +155,14 @@ export function BlueprintSite() {
                   <div className="bp-dim" aria-hidden="true" />
                   <dl className="mt-4 grid grid-cols-3 gap-6">
                     {STATS.map((stat) => (
-                      <div key={stat.label}>
-                        <dd className="bp-mono text-3xl font-bold text-primary sm:text-4xl">
+                      <div key={stat.label} className="flex flex-col">
+                        <dt className="bp-mono order-last mt-1 text-[0.65rem] uppercase text-muted-foreground">
+                          {stat.label}
+                        </dt>
+                        <dd className="bp-mono order-first text-3xl font-bold text-primary sm:text-4xl">
                           {stat.value.toLocaleString()}
                           {stat.suffix}
                         </dd>
-                        <dt className="bp-mono mt-1 text-[0.65rem] uppercase text-muted-foreground">
-                          {stat.label}
-                        </dt>
                       </div>
                     ))}
                   </dl>
@@ -520,7 +524,7 @@ export function BlueprintSite() {
       </main>
 
       {/* ============ Footer — title block ============ */}
-      <footer className="relative z-10 border-t border-primary px-6 py-12" role="contentinfo">
+      <footer className="relative z-10 border-t border-primary px-6 pt-12 pb-32" role="contentinfo">
         <div className="mx-auto flex max-w-7xl flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <p className="text-lg font-semibold tracking-tight">Accessible Computing</p>
