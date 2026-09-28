@@ -110,7 +110,7 @@
   border-radius: 9999px;
   border: 1px solid var(--accent);
   opacity: 0;
-  animation: db-ping 2.4s ease-out infinite;
+  animation: db-ping 2.4s ease-out 2;
 }
 
 @keyframes db-ping {
@@ -146,7 +146,7 @@
 .v-dashboard .db-input {
   width: 100%;
   background: var(--muted);
-  border: 1px solid var(--border);
+  border: 1.5px solid var(--muted-foreground);
   border-radius: 0.75rem;
   padding: 0.8rem 1rem;
   font-family: inherit;

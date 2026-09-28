@@ -15,7 +15,7 @@ import {
   STATS,
 } from "@/lib/constants";
 
-/* Illustrative panel data. Labelled "sample" in the UI; never presented
+/* Illustrative panel data. Labeled "sample" in the UI; never presented
    as a client's real numbers. */
 const SAMPLE_TILES = [
   { label: "Organic sessions", value: "+38%", note: "vs. last quarter" },
@@ -176,14 +176,14 @@ export function DashboardSite() {
                 className="mt-10 grid grid-cols-3 gap-4 border-t border-border pt-6"
               >
                 {STATS.map((stat) => (
-                  <div key={stat.label}>
-                    <dd className="db-display text-2xl font-bold sm:text-3xl">
+                  <div key={stat.label} className="flex flex-col">
+                    <dt className="order-last mt-1 text-xs text-muted-foreground">
+                      {stat.label}
+                    </dt>
+                    <dd className="db-display order-first text-2xl font-bold sm:text-3xl">
                       {stat.value.toLocaleString()}
                       {stat.suffix}
                     </dd>
-                    <dt className="mt-1 text-xs text-muted-foreground">
-                      {stat.label}
-                    </dt>
                   </div>
                 ))}
               </motion.dl>
@@ -206,7 +206,7 @@ export function DashboardSite() {
                     </p>
                   </div>
                   <span className="rounded-full bg-muted px-3 py-1 text-xs font-semibold text-accent">
-                    Live
+                    Sample
                   </span>
                 </div>
 
@@ -409,7 +409,7 @@ export function DashboardSite() {
                 id="portfolio-heading"
                 className="db-display mt-3 text-4xl font-bold sm:text-5xl"
               >
-                Accounts, in order of scale
+                Selected accounts
               </h2>
             </ScrollReveal>
 
@@ -552,7 +552,7 @@ export function DashboardSite() {
       </main>
 
       {/* ============ Footer ============ */}
-      <footer className="relative z-10 border-t border-border px-6 py-12" role="contentinfo">
+      <footer className="relative z-10 border-t border-border px-6 pt-12 pb-32" role="contentinfo">
         <div className="mx-auto flex max-w-7xl flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
           <div>
             <p className="db-display text-lg font-semibold">

@@ -47,10 +47,18 @@ describe.each(CASES)("$name design concept", ({ Site, heading, submit }) => {
     const form = screen.getByRole("button", { name: submit }).closest("form");
     expect(form).not.toBeNull();
     const scope = within(form as HTMLFormElement);
-    expect(scope.getByLabelText(/name/i)).toBeRequired();
-    expect(scope.getByLabelText(/email/i)).toBeRequired();
-    expect(scope.getByLabelText(/url|website/i)).toHaveAttribute("type", "url");
-    expect(scope.getByLabelText(/url|website/i)).toHaveAttribute("name", "website");
+    const name = scope.getByLabelText(/name/i);
+    const email = scope.getByLabelText(/email/i);
+    const message = scope.getByRole("textbox", { name: /number|selling|survey/i });
+    const website = scope.getByLabelText(/url|website/i);
+    expect(name).toBeRequired();
+    expect(name).toHaveAttribute("name", "name");
+    expect(email).toBeRequired();
+    expect(email).toHaveAttribute("name", "email");
+    expect(message).toBeRequired();
+    expect(message).toHaveAttribute("name", "message");
+    expect(website).toHaveAttribute("type", "url");
+    expect(website).toHaveAttribute("name", "website");
   });
 
   it("exposes landmark structure: main, contentinfo, main navigation", () => {
