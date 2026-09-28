@@ -55,6 +55,14 @@ const CONCEPTS = [
       "Drafting-paper grid, dimension lines, numbered plates and mono annotations. A schematic of the growth system in the hero, a title block in the footer, safety-orange calls to action. Cyanotype in dark mode.",
     swatches: ["#eef3fb", "#16449e", "#f5953a"],
   },
+  {
+    href: "/designs/classic",
+    name: "The Classic",
+    thesis: "The site as it stands",
+    description:
+      "The current default: Geist, the blue-to-red gradient, the stock navbar and footer, and the same sections the live homepage renders. Here so it can be judged against the other six on equal terms.",
+    swatches: ["#ffffff", "#003d80", "#c41400"],
+  },
 ] as const;
 
 export default function DesignsIndex() {
@@ -65,11 +73,11 @@ export default function DesignsIndex() {
           Internal — not indexed
         </p>
         <h1 className="mt-4 text-4xl font-black tracking-tight sm:text-5xl">
-          Six design concepts
+          Seven design concepts
         </h1>
         <p className="mt-4 max-w-2xl text-lg text-muted-foreground">
-          Same content, same WCAG 2.2 AAA rigor — six very different points of
-          view. Toggle dark mode on each; every palette is tuned for both
+          Same content, same WCAG 2.2 AAA rigor — seven points of view,
+          including the site as it stands today. Toggle dark mode on each; every palette is tuned for both
           themes. The three newest lead with the free-audit conversion.
         </p>
 
