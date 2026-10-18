@@ -1,7 +1,7 @@
 import { describe, it, expect, vi, afterEach } from "vitest";
 import { render, screen, within, fireEvent, waitFor } from "@testing-library/react";
 import { CraftSite } from "@/components/variants/craft/craft-site";
-import { MESSAGING, SERVICES } from "@/lib/constants";
+import { MESSAGING, NAV_ITEMS, SERVICES } from "@/lib/constants";
 
 afterEach(() => {
   vi.unstubAllGlobals();
@@ -45,8 +45,8 @@ describe("The Craft design concept", () => {
 
   it("links every contents entry to a service plate that exists on the page", () => {
     render(<CraftSite />);
-    const toc = document.querySelector("ol.cr-toc") as HTMLElement;
-    const links = within(toc).getAllByRole("link");
+    const services = document.getElementById("services") as HTMLElement;
+    const links = within(within(services).getByRole("list")).getAllByRole("link");
     expect(links).toHaveLength(SERVICES.length);
     for (const link of links) {
       const href = link.getAttribute("href") ?? "";
@@ -57,15 +57,33 @@ describe("The Craft design concept", () => {
     }
   });
 
+  it("resolves every in-page navigation anchor", () => {
+    render(<CraftSite />);
+    for (const navItem of NAV_ITEMS) {
+      if (!navItem.href.startsWith("#")) continue;
+      expect(document.getElementById(navItem.href.slice(1)), navItem.href).not.toBeNull();
+    }
+    expect(document.getElementById("audit")).not.toBeNull();
+  });
+
+  it("names both forms for assistive technology", () => {
+    render(<CraftSite />);
+    expect(screen.getByRole("form", { name: /get your free visibility audit/i })).toBeInTheDocument();
+    expect(screen.getByRole("form", { name: /write to us/i })).toBeInTheDocument();
+  });
+
   it("labels the monthly report as a sample and keeps the founder to one line near the end", () => {
     render(<CraftSite />);
-    const report = screen.getByRole("img", { name: /illustrative sample of a monthly report/i });
+    const report = screen.getByRole("figure", { name: /illustrative sample of a monthly report/i });
     expect(within(report).getByText("Sample")).toBeInTheDocument();
-    expect(screen.getByText(/sample figures, not a client/i)).toBeInTheDocument();
+    expect(within(report).getByText(/sample figures, not a client/i)).toBeInTheDocument();
     const main = screen.getByRole("main");
     const founder = screen.getByText(MESSAGING.founder);
-    // The founder line sits after the testimonials and before the contact section.
+    // The founder line sits after the last testimonial and before the contact section.
+    const figures = document.querySelectorAll("figure");
+    const lastTestimonial = figures[figures.length - 1];
     const contact = document.getElementById("contact")!;
+    expect(lastTestimonial.compareDocumentPosition(founder) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
     expect(founder.compareDocumentPosition(contact) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
     expect(main.contains(founder)).toBe(true);
     expect(founder.tagName).toBe("P");

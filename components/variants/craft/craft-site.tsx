@@ -89,7 +89,7 @@ export function CraftSite() {
             </ul>
           </nav>
           <div className="flex items-center gap-3">
-            <a href="#audit" className="cr-hero-cta hidden h-10 items-center px-5 text-sm sm:inline-flex">
+            <a href="#audit" className="cr-hero-cta hidden h-11 items-center px-5 text-sm sm:inline-flex">
               Free audit
             </a>
             <ThemeToggle />
@@ -133,7 +133,7 @@ export function CraftSite() {
 
             <motion.div variants={item} className="lg:col-span-5" id="audit">
               <div className="cr-panel p-6 sm:p-7">
-                <p className="cr-display text-xl font-semibold">Get your free visibility audit</p>
+                <p id="audit-heading" className="cr-display text-xl font-semibold">Get your free visibility audit</p>
                 <p className="cr-hero-muted mt-1 text-sm">Your account manager reviews it before it is sent.</p>
                 <p className="cr-hero-muted mt-2 text-xs">{[...PLATFORMS, ...EMAIL_PLATFORMS].join(" · ")}</p>
                 <div className="mt-5">
@@ -166,11 +166,7 @@ export function CraftSite() {
             </ScrollReveal>
 
             <ScrollReveal direction="right" className="lg:col-span-7">
-              <div
-                className="cr-report p-5 sm:p-6"
-                role="img"
-                aria-label="Illustrative sample of a monthly report: organic sessions up 38 percent, $42.1k email revenue, 17 AI answer citations, $31 cost per lead, and a rising leads-per-week line"
-              >
+              <figure className="cr-report p-5 sm:p-6" aria-labelledby="report-caption">
                 <div className="flex items-center justify-between">
                   <div>
                     <p className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">Monthly report</p>
@@ -192,12 +188,14 @@ export function CraftSite() {
                     <p className="text-xs text-muted-foreground">Leads per week</p>
                     <p className="cr-display text-sm font-semibold text-primary">+333%</p>
                   </div>
-                  <svg className="cr-spark mt-2 h-20 w-full" viewBox="0 0 320 80" preserveAspectRatio="none" aria-hidden="true">
+                  <svg className="cr-spark mt-2 h-20 w-full" viewBox="0 0 320 80" preserveAspectRatio="none" role="img" aria-label="Leads per week, rising steadily across twelve weeks">
                     <path d={sparkPath(SPARK_POINTS)} fill="none" stroke="var(--primary)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                 </div>
-              </div>
-              <p className="mt-3 text-xs text-muted-foreground">Illustrative. Sample figures, not a client&rsquo;s results.</p>
+                <figcaption id="report-caption" className="mt-3 text-xs text-muted-foreground">
+                  Illustrative sample of a monthly report. Sample figures, not a client&rsquo;s results.
+                </figcaption>
+              </figure>
             </ScrollReveal>
           </div>
         </section>
@@ -242,7 +240,7 @@ export function CraftSite() {
                   </div>
                   <h3 className="cr-display mt-4 text-2xl font-medium">{service.title}</h3>
                   <p className="mt-2 text-base leading-relaxed text-muted-foreground">{service.description}</p>
-                  <a href="#services" className="mt-5 inline-block text-xs font-semibold uppercase tracking-[0.14em] text-primary">
+                  <a href="#services" className="mt-4 inline-flex min-h-11 items-center text-xs font-semibold uppercase tracking-[0.14em] text-primary">
                     Back to contents
                   </a>
                 </article>
@@ -386,7 +384,7 @@ function CraftHeroForm() {
     handleSubmit(e);
   }
   return (
-    <form onSubmit={submitWithSite} className="space-y-4">
+    <form onSubmit={submitWithSite} aria-labelledby="audit-heading" className="space-y-4">
       <div>
         <label htmlFor="cr-hero-email" className="block text-sm font-semibold">
           Work email <span aria-hidden="true">*</span><span className="sr-only">(required)</span>
@@ -417,7 +415,7 @@ function CraftHeroForm() {
 function CraftBodyForm() {
   const { status, handleSubmit } = useContactForm();
   return (
-    <form onSubmit={handleSubmit} className="space-y-5">
+    <form onSubmit={handleSubmit} aria-labelledby="contact-heading" className="space-y-5">
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
           <label htmlFor="cr-name" className="block text-sm font-semibold">
