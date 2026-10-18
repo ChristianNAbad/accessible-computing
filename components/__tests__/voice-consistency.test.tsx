@@ -10,6 +10,7 @@ import { ClassicSite } from "@/components/variants/classic/classic-site";
 import { AnswerSite } from "@/components/variants/answer/answer-site";
 import { ProofSite } from "@/components/variants/proof/proof-site";
 import { ConversationSite } from "@/components/variants/conversation/conversation-site";
+import { CraftSite } from "@/components/variants/craft/craft-site";
 import { EDGE, EMAIL_PLATFORMS, MESSAGING, PLATFORMS } from "@/lib/constants";
 
 const CONCEPTS = [
@@ -23,6 +24,7 @@ const CONCEPTS = [
   ["Answer", AnswerSite],
   ["Proof", ProofSite],
   ["Conversation", ConversationSite],
+  ["Craft", CraftSite],
 ] as const;
 
 /* Whitespace in JSX collapses, so compare on a normalized text body. */
