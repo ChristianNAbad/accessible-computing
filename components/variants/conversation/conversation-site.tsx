@@ -13,6 +13,9 @@ import {
   MILESTONES,
   TESTIMONIALS,
   STATS,
+  MESSAGING,
+  PLATFORMS,
+  EMAIL_PLATFORMS,
 } from "@/lib/constants";
 
 const ACRONYMS = [
@@ -33,7 +36,7 @@ const DELIVERABLES = [
   "AI visibility and entity audit across Google AI Overviews, ChatGPT, Gemini and Perplexity",
   "Content restructured so machines can parse it and people still want to read it",
   "New pages and posts written to be the cited source, in your voice",
-  "Klaviyo flows and campaigns, human-approved before they send",
+  "Klaviyo and Mailchimp flows and campaigns, human-approved before they send",
   "Google Ads built, watched and cut the day they stop working",
   "A monthly report from your account manager, in plain language",
 ];
@@ -97,10 +100,15 @@ export function ConversationSite() {
               </motion.h1>
               <motion.p variants={item} className="cv-hero-muted mt-6 max-w-xl text-lg leading-relaxed">
                 People ask ChatGPT, Perplexity and Google which brand to buy
-                before they ever search your name. We are a small agency that
-                gets brands that sell online into that answer, and into the
-                inbox and the results page too. Every account has a dedicated
-                account manager who is a working marketing expert.
+                before they ever search your name. We get brands that sell
+                online into that answer, and into the inbox and the results
+                page too.
+              </motion.p>
+              <motion.p variants={item} className="cv-hero-muted mt-4 max-w-xl text-base leading-relaxed">
+                {MESSAGING.positioning}
+              </motion.p>
+              <motion.p variants={item} className="cv-hero-muted mt-3 max-w-xl text-base leading-relaxed">
+                {MESSAGING.edge}
               </motion.p>
               <motion.dl variants={item} className="mt-10 grid grid-cols-3 gap-4 border-t border-[var(--cv-hero-line)] pt-6">
                 {STATS.map((stat) => (
@@ -118,6 +126,7 @@ export function ConversationSite() {
               <div className="cv-form-card p-6 sm:p-7">
                 <p className="cv-display text-lg font-bold">Get your free visibility audit</p>
                 <p className="cv-hero-muted mt-1 text-sm">Reviewed by your account manager before it is sent.</p>
+                <p className="cv-hero-muted mt-2 text-xs">{[...PLATFORMS, ...EMAIL_PLATFORMS].join(" · ")}</p>
                 <div className="mt-5">
                   <ConversationHeroForm />
                 </div>
@@ -264,9 +273,11 @@ export function ConversationSite() {
             <ScrollReveal direction="left" className="lg:col-span-7">
               <h2 id="about-heading" className="cv-display text-3xl font-bold sm:text-5xl">Who is on the other end</h2>
               <div className="mt-6 space-y-5 text-lg leading-relaxed text-muted-foreground">
-                <p><strong className="text-foreground">Your account manager</strong>: a working marketing expert who owns the plan, reviews everything before it ships, and writes your monthly report.</p>
-                <p><strong className="text-foreground">The team</strong>: content, search, email and paid specialists. Short client list, one client per product category.</p>
-                <p><strong className="text-foreground">The founder</strong>: Christian N. Abad, a thirty-year engineer and the Founder and CEO of CannaBuddy and Purely Found, both run on this playbook.</p>
+                <p>{MESSAGING.manager}</p>
+                <p>{MESSAGING.team}</p>
+                <p>{MESSAGING.founder}</p>
+                <p className="text-foreground">{MESSAGING.fit}</p>
+                <p>{MESSAGING.platforms}</p>
               </div>
             </ScrollReveal>
             <ScrollReveal direction="right" className="lg:col-span-5">
@@ -321,9 +332,7 @@ export function ConversationSite() {
           <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-12">
             <ScrollReveal direction="left" className="lg:col-span-5">
               <h2 id="contact-heading" className="cv-display text-3xl font-bold sm:text-5xl">Let&rsquo;s talk.</h2>
-              <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
-                Tell us what you sell and what is stuck. Your account manager replies within one business day, and the free audit follows within two.
-              </p>
+              <p className="mt-5 text-lg leading-relaxed text-muted-foreground">{MESSAGING.audit}</p>
               <p className="mt-8 text-sm text-muted-foreground">
                 <a href={`tel:${COMPANY.phone.replace(/[^\d+]/g, "")}`} className="font-bold text-foreground hover:text-primary">{COMPANY.phone}</a>
                 {" "}· {COMPANY.address}
@@ -436,7 +445,7 @@ function ConversationBodyForm() {
         {status === "sending" ? "Sending…" : "Start the conversation"}
       </button>
       {status === "sent" && (
-        <p className="text-sm font-bold text-primary" role="status">Received. Your account manager will reply within one business day.</p>
+        <p className="text-sm font-bold text-primary" role="status">{MESSAGING.auditSent}</p>
       )}
       {status === "error" && (
         <p className="text-sm font-bold text-accent" role="alert">That did not go through. Try again, or call us.</p>

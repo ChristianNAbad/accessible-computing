@@ -13,6 +13,9 @@ import {
   MILESTONES,
   TESTIMONIALS,
   STATS,
+  MESSAGING,
+  PLATFORMS,
+  EMAIL_PLATFORMS,
 } from "@/lib/constants";
 
 function specs(year: number) {
@@ -130,10 +133,22 @@ export function BlueprintSite() {
                   variants={item}
                   className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground"
                 >
-                  Search, content, email and paid for brands that sell online,
-                  drawn to spec, built to tolerance, and measured against the
-                  drawing every month. A dedicated account manager owns the
-                  drawing for your account.
+                  {MESSAGING.positioning}
+                </motion.p>
+
+                <motion.p
+                  variants={item}
+                  className="mt-4 max-w-xl text-base leading-relaxed text-muted-foreground"
+                >
+                  {MESSAGING.edge}
+                </motion.p>
+
+                <motion.p
+                  variants={item}
+                  className="bp-mono mt-4 max-w-xl text-[0.65rem] uppercase text-muted-foreground"
+                >
+                  <span className="text-primary">Platforms</span>{" "}
+                  {[...PLATFORMS, ...EMAIL_PLATFORMS].join(" / ")}
                 </motion.p>
 
                 <motion.div variants={item} className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -306,26 +321,11 @@ export function BlueprintSite() {
                 an engineer.
               </h2>
               <div className="mt-6 space-y-5 text-lg leading-relaxed text-muted-foreground">
-                <p>
-                  Every account has a dedicated account manager: a working
-                  marketing expert who owns the plan, reviews every
-                  deliverable against the drawing, and writes the monthly
-                  report.
-                </p>
-                <p>
-                  Behind them is a small team covering search, content, email
-                  and paid, one client per product category. The team ships
-                  with autonomous coding agents, which is how a small team
-                  delivers what used to take a department.
-                </p>
-                <p>
-                  The founder, Christian N. Abad, started in C on Solaris
-                  workstations, led web accessibility for more than 5,000 pages
-                  at Bank of America, and built applications for DHS and the US
-                  Navy. He is Founder and CEO of{" "}
-                  <strong className="text-foreground">CannaBuddy</strong> and{" "}
-                  <strong className="text-foreground">Purely Found</strong>,
-                  and the system on this sheet is the one both brands run on.
+                <p>{MESSAGING.manager}</p>
+                <p>{MESSAGING.team}</p>
+                <p>{MESSAGING.founder}</p>
+                <p className="bp-mono text-sm uppercase text-foreground">
+                  {MESSAGING.fit}
                 </p>
               </div>
               <div className="mt-8 flex flex-wrap gap-3">
@@ -494,10 +494,7 @@ export function BlueprintSite() {
                 Get your site surveyed. Free.
               </h2>
               <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
-                Submit the URL. We return a survey of your search gaps, your
-                email revenue ceiling, and how the AI answer engines describe
-                you today. Reviewed by your account manager before it leaves
-                the office.
+                {MESSAGING.audit}
               </p>
               <div className="bp-hatch mt-8 p-4">
                 <dl className="bp-mono space-y-2 text-xs uppercase">
@@ -637,8 +634,7 @@ function BlueprintAuditForm() {
 
       {status === "sent" && (
         <p className="bp-mono text-xs uppercase" role="status">
-          Received. Your account manager will issue the survey within two
-          business days.
+          {MESSAGING.auditSent}
         </p>
       )}
       {status === "error" && (

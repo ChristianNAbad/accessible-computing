@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { Send, Phone, MapPin, ExternalLink } from "lucide-react";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
-import { COMPANY } from "@/lib/constants";
+import { COMPANY, MESSAGING } from "@/lib/constants";
 
 export function Contact() {
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">(
@@ -53,8 +53,7 @@ export function Contact() {
               Let&apos;s <span className="gradient-text">Connect</span>
             </h2>
             <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
-              Send us your site and the one number you want to move. Your free
-              audit is reviewed by your account manager before it is sent.
+              {MESSAGING.audit}
             </p>
           </div>
         </ScrollReveal>
@@ -145,7 +144,7 @@ export function Contact() {
 
               {status === "sent" && (
                 <p className="text-sm font-medium text-green-600" role="status">
-                  Message sent! Your account manager will follow up soon.
+                  {MESSAGING.auditSent}
                 </p>
               )}
               {status === "error" && (
@@ -160,12 +159,9 @@ export function Contact() {
           <ScrollReveal direction="right">
             <div className="space-y-8 lg:pl-8">
               <div>
-                <h3 className="text-lg font-bold">Get in Touch</h3>
+                <h3 className="text-lg font-bold">Platforms We Work In</h3>
                 <p className="mt-2 text-sm text-muted-foreground">
-                  Content, search, email and paid for brands that sell online,
-                  with a dedicated account manager and a small team behind
-                  every account. Tell us what is stuck and we will take it
-                  from there.
+                  {MESSAGING.platforms}
                 </p>
               </div>
 

@@ -13,6 +13,9 @@ import {
   MILESTONES,
   TESTIMONIALS,
   STATS,
+  MESSAGING,
+  PLATFORMS,
+  EMAIL_PLATFORMS,
 } from "@/lib/constants";
 
 /* Illustrative panel data. Labeled "sample" in the UI; never presented
@@ -132,7 +135,7 @@ export function DashboardSite() {
                 className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1 text-xs font-semibold text-accent"
               >
                 <span className="db-dot" aria-hidden="true" />
-                Outsourced marketing department
+                {MESSAGING.eyebrow}
               </motion.p>
 
               <motion.h1
@@ -148,10 +151,14 @@ export function DashboardSite() {
                 variants={item}
                 className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground"
               >
-                Content, search, email and paid for brands that sell online.
-                A dedicated account manager runs your account, measures it
-                every week, and reports it in a dashboard you will actually
-                read.
+                {MESSAGING.positioning}
+              </motion.p>
+
+              <motion.p
+                variants={item}
+                className="mt-4 max-w-xl text-base leading-relaxed text-muted-foreground"
+              >
+                {MESSAGING.edge}
               </motion.p>
 
               <motion.div
@@ -188,6 +195,21 @@ export function DashboardSite() {
                   </div>
                 ))}
               </motion.dl>
+
+              <motion.ul
+                variants={item}
+                className="mt-6 flex flex-wrap gap-1.5"
+                aria-label="Platforms we work in"
+              >
+                {[...PLATFORMS, ...EMAIL_PLATFORMS].map((platform) => (
+                  <li
+                    key={platform}
+                    className="rounded-full bg-muted px-2.5 py-0.5 text-[0.7rem] font-semibold text-foreground"
+                  >
+                    {platform}
+                  </li>
+                ))}
+              </motion.ul>
             </div>
 
             {/* Results panel */}
@@ -330,26 +352,11 @@ export function DashboardSite() {
                 One account manager, one team, one number.
               </h2>
               <div className="mt-6 space-y-5 text-lg leading-relaxed text-muted-foreground">
-                <p>
-                  Every account has a dedicated account manager: a working
-                  marketing expert who owns the plan, reviews every
-                  deliverable before it ships, and writes the monthly report
-                  you will actually read.
-                </p>
-                <p>
-                  Behind them is a small team covering content, search, email
-                  and paid. We take one client per product category, so nobody
-                  on your account is also working your competitor&apos;s.
-                </p>
-                <p>
-                  The founder, Christian N. Abad, is a thirty-year engineer who
-                  led web accessibility for more than 5,000 pages at Bank of
-                  America and is Founder and CEO of{" "}
-                  <strong className="text-foreground">CannaBuddy</strong> and{" "}
-                  <strong className="text-foreground">Purely Found</strong>.
-                  Both brands run on the same playbook your account manager
-                  uses, and every process here is one his own companies use
-                  first.
+                <p>{MESSAGING.manager}</p>
+                <p>{MESSAGING.team}</p>
+                <p>{MESSAGING.founder}</p>
+                <p className="text-base font-semibold text-foreground">
+                  {MESSAGING.fit}
                 </p>
               </div>
               <div className="mt-8 flex flex-wrap gap-3">
@@ -521,10 +528,7 @@ export function DashboardSite() {
                 See your numbers before you spend a dollar.
               </h2>
               <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
-                Send us your site. We come back with the search gaps, the
-                email revenue you are leaving on the table, and where the AI
-                answer engines mention you today. Reviewed by your account
-                manager before it is sent.
+                {MESSAGING.audit}
               </p>
               <dl className="mt-8 space-y-3 text-sm">
                 <div className="flex gap-3">
@@ -664,8 +668,7 @@ function DashboardAuditForm() {
 
       {status === "sent" && (
         <p className="text-sm font-semibold text-accent" role="status">
-          Got it. Your account manager will review your audit and send it
-          within two business days.
+          {MESSAGING.auditSent}
         </p>
       )}
       {status === "error" && (
