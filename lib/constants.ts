@@ -243,7 +243,7 @@ export const EMAIL_PLATFORMS = ["Klaviyo", "Mailchimp"] as const;
 export const MESSAGING = {
   eyebrow: "A marketing agency for brands that sell online",
   positioning:
-    "Accessible Computing is a marketing agency for established brands that sell online. Search, content, email, paid and AI-search visibility, delivered by a dedicated account manager who is a working marketing expert and a small team of specialists.",
+    "Accessible Computing is a marketing agency for established brands that sell online. Search, content, email, paid and AI-search visibility, delivered by a dedicated account manager and a small team of specialists, and reported in plain language every month.",
   edge:
     "The work runs on The Edge, our own content and growth platform. We market this site with it too, so what you are reading is evidence of what it produces.",
   fit: "Built for brands ready to invest in growth every month, not a one-month test.",

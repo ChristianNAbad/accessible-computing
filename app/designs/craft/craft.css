@@ -1,0 +1,220 @@
+/* ============================================================
+   CONCEPT 11 — THE CRAFT
+   The synthesis after review: The Answer's palette and glow hero,
+   The Editorial's craft voice and serif, The Conversation's audit
+   panel in the hero, The Dashboard's sample report. Fraunces display
+   · Figtree body. Dark hero in both themes, light body by default.
+   All text pairs >= 7:1 (WCAG 2.2 AAA), both themes.
+   ============================================================ */
+
+.v-craft {
+  --background: #f6f7f5;
+  --foreground: #0f1a1c;
+  --primary: #084646;
+  --primary-light: #0b5c5c;
+  --accent: #6b3800;
+  --accent-light: #8a4b00;
+  --muted: #e8ecea;
+  --muted-foreground: #3f4d4f;
+  --border: #c7d1ce;
+  --card: #ffffff;
+  --ring: #084646;
+  --gradient-start: #084646;
+  --gradient-end: #6b3800;
+  --section-alt: #eef2f0;
+  /* Hero palette, theme-invariant */
+  --cr-hero-bg: #0f1a1c;
+  --cr-hero-fg: #e9efee;
+  --cr-hero-muted: #a9b8b7;
+  --cr-hero-accent: #ffb454;
+  --cr-hero-teal: #5fd3c8;
+  --cr-hero-line: #24383b;
+  --cr-hero-card: #122023;
+
+  font-family: var(--font-figtree), "Helvetica Neue", Arial, sans-serif;
+  overflow-x: clip;
+}
+
+.dark .v-craft {
+  --background: #0f1a1c;
+  --foreground: #e9efee;
+  --primary: #5fd3c8;
+  --primary-light: #7fe0d6;
+  --accent: #ffb454;
+  --accent-light: #ffc475;
+  --muted: #16262a;
+  --muted-foreground: #a9b8b7;
+  --border: #2a3f43;
+  --card: #122023;
+  --ring: #5fd3c8;
+  --gradient-start: #5fd3c8;
+  --gradient-end: #ffb454;
+  --section-alt: #132124;
+}
+
+.cr-display {
+  font-family: var(--font-fraunces), Georgia, serif;
+  font-optical-sizing: auto;
+  letter-spacing: -0.015em;
+}
+
+.cr-hero {
+  background: var(--cr-hero-bg);
+  color: var(--cr-hero-fg);
+  position: relative;
+  overflow: hidden;
+}
+
+.cr-hero-muted {
+  color: var(--cr-hero-muted);
+}
+
+/* The global ring is the light-theme primary, invisible on the dark hero */
+.cr-hero :focus-visible {
+  outline-color: var(--cr-hero-accent);
+}
+
+.cr-hero-accent {
+  color: var(--cr-hero-accent);
+}
+
+.cr-glow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(38rem 26rem at 78% 20%, rgba(95, 211, 200, 0.18), transparent 65%),
+    radial-gradient(30rem 22rem at 12% 90%, rgba(255, 180, 84, 0.14), transparent 65%),
+    radial-gradient(circle at 1px 1px, rgba(233, 239, 238, 0.07) 1px, transparent 1.5px);
+  background-size:
+    auto,
+    auto,
+    28px 28px;
+}
+
+/* Audit panel in the hero */
+.cr-panel {
+  background: rgba(18, 32, 35, 0.9);
+  border: 1px solid var(--cr-hero-line);
+  border-top: 3px solid var(--cr-hero-accent);
+  border-radius: 1rem;
+  backdrop-filter: blur(6px);
+}
+
+.v-craft .cr-hero-input {
+  width: 100%;
+  background: #1a2a2d;
+  border: 1.5px solid #8fa3a1;
+  border-radius: 0.6rem;
+  padding: 0.8rem 1rem;
+  font-family: inherit;
+  font-size: 1rem;
+  color: var(--cr-hero-fg);
+  transition: border-color 0.2s ease;
+}
+
+.v-craft .cr-hero-input::placeholder {
+  color: #a9b8b7;
+}
+
+.v-craft .cr-hero-input:focus {
+  border-color: var(--cr-hero-accent);
+  outline: 3px solid var(--cr-hero-accent);
+  outline-offset: 2px;
+}
+
+.cr-hero-cta {
+  background: var(--cr-hero-accent);
+  color: var(--cr-hero-bg);
+  border-radius: 999px;
+  font-weight: 700;
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+}
+
+.cr-hero-cta:hover {
+  opacity: 0.92;
+  transform: translateY(-1px);
+}
+
+/* Sample report panel */
+.cr-report {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 1.25rem;
+  box-shadow: 0 24px 60px -34px rgba(15, 26, 28, 0.45);
+}
+
+.cr-tile {
+  background: var(--muted);
+  border: 1px solid var(--border);
+  border-radius: 0.9rem;
+}
+
+/* Contents list: every entry is a link, leader dots carry the eye */
+.cr-toc a {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  padding-block: 1.1rem;
+  border-bottom: 1px solid var(--border);
+  color: inherit;
+  text-decoration: none;
+}
+
+.cr-toc a:hover .cr-toc-title,
+.cr-toc a:focus-visible .cr-toc-title {
+  color: var(--primary);
+}
+
+.cr-toc a:focus-visible {
+  outline: 3px solid var(--ring);
+  outline-offset: 4px;
+}
+
+.cr-leader {
+  flex: 1 1 2rem;
+  min-width: 2rem;
+  border-bottom: 2px dotted var(--border);
+  transform: translateY(-0.35em);
+}
+
+/* Service plates (the targets of the contents links) */
+.cr-plate {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--primary);
+  border-radius: 0 1rem 1rem 0;
+  scroll-margin-top: 6rem;
+}
+
+/* Double rule, the one editorial flourish kept */
+.cr-double-rule {
+  border-top: 4px double var(--foreground);
+}
+
+/* Body inputs */
+.v-craft .cr-input {
+  width: 100%;
+  background: var(--card);
+  border: 1.5px solid var(--muted-foreground);
+  border-radius: 0.6rem;
+  padding: 0.8rem 1rem;
+  font-family: inherit;
+  font-size: 1rem;
+  color: var(--foreground);
+  transition: border-color 0.2s ease;
+}
+
+.v-craft .cr-input:focus {
+  border-color: var(--primary);
+  outline: 3px solid var(--ring);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cr-hero-cta:hover {
+    transform: none;
+  }
+}

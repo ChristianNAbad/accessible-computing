@@ -17,12 +17,12 @@ import {
 } from "@/lib/constants";
 
 const VALUES = [
-  "Accessible",
-  "Inclusive",
-  "Performant",
-  "Compliant",
-  "Responsive",
-  "Semantic",
+  "Search",
+  "Content",
+  "Email",
+  "Paid",
+  "AI Search",
+  "Reported monthly",
 ];
 
 export function EditorialSite() {

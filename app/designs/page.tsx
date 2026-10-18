@@ -87,6 +87,14 @@ const CONCEPTS = [
       "Built from the structure of the page that ranks #3 for AI SEO agency: the lead form lives inside a black hero, then a stat strip, a before-and-now contrast, an acronym grid and a comparison table. Black, lime, magenta.",
     swatches: ["#0a0a0a", "#c6ff3d", "#ff7ad9"],
   },
+  {
+    href: "/designs/craft",
+    name: "The Craft",
+    thesis: "Marketing, practiced as a craft",
+    description:
+      "The synthesis after review: The Answer's teal and amber palette and glow hero, The Editorial's craft voice and serif, The Conversation's audit panel in the hero, The Dashboard's sample report as the second section. Contents list links to each service. The founder is one line near the end.",
+    swatches: ["#0f1a1c", "#084646", "#ffb454"],
+  },
 ] as const;
 
 export default function DesignsIndex() {
@@ -97,13 +105,14 @@ export default function DesignsIndex() {
           Internal — not indexed
         </p>
         <h1 className="mt-4 text-4xl font-black tracking-tight sm:text-5xl">
-          Ten design concepts
+          Eleven design concepts
         </h1>
         <p className="mt-4 max-w-2xl text-lg text-muted-foreground">
-          Same content, same WCAG 2.2 AAA rigor — ten points of view,
-          including the site as it stands today and three built from the
-          structure of the pages that currently rank for our keywords. Toggle dark mode on each; every palette is tuned for both
-          themes. The three newest lead with the free-audit conversion.
+          Same content, same WCAG 2.2 AAA rigor — eleven points of view,
+          including the site as it stands today, three built from the
+          structure of the pages that currently rank for our keywords, and
+          one synthesis built from the review feedback. Toggle dark mode on each; every palette is tuned for both
+          themes. Every concept from The Dashboard on leads with the free-audit call to action; The Conversation and The Craft put the audit form itself in the hero.
         </p>
 
         <div className="mt-12 space-y-6">
