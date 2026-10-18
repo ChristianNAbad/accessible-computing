@@ -112,12 +112,11 @@ export function BrutalistSite() {
               variants={item}
               className="br-display mt-8 text-[15vw] uppercase leading-[0.9] tracking-tight sm:text-7xl md:text-8xl lg:text-[7.5rem]"
             >
-              Making brands
+              Making brands{" "}
               <br />
-              sell
+              sell{" "}
               <br />
               <span className="br-accent-block inline-block px-3">more</span>
-              <span aria-hidden="true">*</span>
             </motion.h1>
 
             <motion.p
@@ -142,7 +141,7 @@ export function BrutalistSite() {
               {[...PLATFORMS, ...EMAIL_PLATFORMS].map((platform) => (
                 <li
                   key={platform}
-                  className="border-2 border-foreground px-2 py-0.5 text-[0.65rem] font-bold uppercase tracking-[0.1em]"
+                  className="border-2 border-foreground px-2 py-0.5 text-xs font-bold uppercase tracking-[0.1em]"
                 >
                   {platform}
                 </li>
@@ -368,7 +367,7 @@ export function BrutalistSite() {
                       {project.tags.map((tag) => (
                         <span
                           key={tag}
-                          className="border-2 border-foreground px-2 py-0.5 text-[0.65rem] font-bold uppercase tracking-[0.1em]"
+                          className="border-2 border-foreground px-2 py-0.5 text-xs font-bold uppercase tracking-[0.1em]"
                         >
                           {tag}
                         </span>

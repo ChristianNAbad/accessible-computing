@@ -145,7 +145,7 @@ export function BlueprintSite() {
 
                 <motion.p
                   variants={item}
-                  className="bp-mono mt-4 max-w-xl text-[0.65rem] uppercase text-muted-foreground"
+                  className="bp-mono mt-4 max-w-xl text-xs uppercase text-muted-foreground"
                 >
                   <span className="text-primary">Platforms</span>{" "}
                   {[...PLATFORMS, ...EMAIL_PLATFORMS].join(" / ")}

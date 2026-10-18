@@ -10,7 +10,7 @@ import { ClassicSite } from "@/components/variants/classic/classic-site";
 import { AnswerSite } from "@/components/variants/answer/answer-site";
 import { ProofSite } from "@/components/variants/proof/proof-site";
 import { ConversationSite } from "@/components/variants/conversation/conversation-site";
-import { EDGE, MESSAGING, PLATFORMS } from "@/lib/constants";
+import { EDGE, EMAIL_PLATFORMS, MESSAGING, PLATFORMS } from "@/lib/constants";
 
 const CONCEPTS = [
   ["Editorial", EditorialSite],
@@ -34,26 +34,29 @@ function bodyText(container: HTMLElement) {
 // reach a page. The Dashboard's sample tiles ($42.1k) are labeled sample data
 // and are not a price, so the pattern looks for retainer and term language.
 const INTERNAL_NUMBERS =
-  /\$\s?2,?000|per month|setup fee|12[- ]month|twelve[- ]month|sixty[- ]day|60[- ]day|month three|out after/i;
+  /\$\s?2,?000|\b2,?000\b|two thousand|\$?2k\b|per month|setup fee|12[- ]month|twelve[- ]month|one[- ]year|annual|sixty[- ]day|60[- ]day|month three|month 3\b|three payments|three months|out after|commitment|\bcontracts?\b|notice period/i;
+
+function count(text: string, needle: string) {
+  return text.split(needle).length - 1;
+}
 
 describe.each(CONCEPTS)("%s concept speaks the shared language", (_name, Site) => {
-  it("renders the agency positioning, The Edge, the fit line and the audit promise verbatim", () => {
+  it("renders the agency positioning, The Edge, the fit line and the audit promise verbatim, each once", () => {
     const { container } = render(<Site />);
     const text = bodyText(container);
-    expect(text).toContain(MESSAGING.positioning);
-    expect(text).toContain(MESSAGING.edge);
-    expect(text).toContain(MESSAGING.fit);
-    expect(text).toContain(MESSAGING.audit);
-    expect(text).toContain(MESSAGING.manager);
-    expect(text).toContain(MESSAGING.team);
-    expect(text).toContain(MESSAGING.founder);
+    // The identity sentences appear exactly once: a second copy reads as a
+    // paste error, and a missing one breaks the shared language.
+    for (const key of ["positioning", "edge", "manager", "team", "founder", "audit"] as const) {
+      expect({ key, count: count(text, MESSAGING[key]) }).toEqual({ key, count: 1 });
+    }
+    expect(count(text, MESSAGING.fit)).toBeGreaterThanOrEqual(1);
   });
 
-  it("names The Edge and every commerce platform", () => {
+  it("names The Edge, every commerce platform and every email platform", () => {
     const { container } = render(<Site />);
     const text = bodyText(container);
     expect(text).toContain(EDGE.name);
-    for (const platform of PLATFORMS) {
+    for (const platform of [...PLATFORMS, ...EMAIL_PLATFORMS]) {
       expect(text).toContain(platform);
     }
   });

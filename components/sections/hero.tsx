@@ -63,7 +63,7 @@ export function Hero() {
           variants={item}
           className="text-4xl font-black leading-[1.1] tracking-tight sm:text-5xl md:text-6xl lg:text-7xl"
         >
-          Marketing That
+          Marketing That{" "}
           <br />
           <span className="gradient-text">Shows Its Work</span>
         </motion.h1>

@@ -404,7 +404,7 @@ function ConversationHeroForm() {
         {status === "sending" ? "Sending…" : "Get my free audit"}
       </button>
       {status === "sent" && (
-        <p className="cv-lime text-sm font-semibold" role="status">Received. Your account manager will be in touch within one business day.</p>
+        <p className="cv-lime text-sm font-semibold" role="status">{MESSAGING.auditSent}</p>
       )}
       {status === "error" && (
         <p className="cv-magenta text-sm font-semibold" role="alert">That did not go through. Try the form below, or call us.</p>

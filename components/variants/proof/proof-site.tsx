@@ -38,7 +38,7 @@ const TOOLS = [
 const PROMISES = [
   { title: "One client per category", body: "Your account manager never works for a competitor of yours." },
   { title: "A person reviews everything", body: "Nothing ships to your site, your list or your ad account without a human sign-off." },
-  { title: "A clear exit, agreed up front", body: MESSAGING.terms },
+  { title: "Exit terms you see before you sign", body: MESSAGING.terms },
 ];
 
 export function ProofSite() {

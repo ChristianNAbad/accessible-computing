@@ -31,8 +31,7 @@ export function AboutStory() {
                 <p>{MESSAGING.team}</p>
                 <p>{MESSAGING.founder}</p>
                 <p>
-                  The team ships with <strong>agentic AI development</strong>{" "}
-                  in Claude Code. See it live at{" "}
+                  Both brands <strong>run on The Edge</strong>. See it live at{" "}
                   <a
                     href="https://cannabuddy.com"
                     target="_blank"

@@ -112,7 +112,7 @@ export function StorefrontSite() {
             <motion.div variants={item} className="flex flex-wrap gap-3">
               <span className="sf-sticker">For brands that sell</span>
               <span className="sf-sticker sf-sticker--alt">
-                Shopify · WooCommerce
+                {PLATFORMS.join(" · ")}
               </span>
             </motion.div>
 

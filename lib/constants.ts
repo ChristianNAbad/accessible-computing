@@ -1,10 +1,10 @@
 import {
-  Globe,
-  Code2,
-  ShoppingCart,
+  Search,
+  PenLine,
+  Mail,
   Megaphone,
-  Accessibility,
-  Bot,
+  Sparkles,
+  Store,
   type LucideIcon,
 } from "lucide-react";
 
@@ -35,42 +35,43 @@ export interface Service {
   icon: LucideIcon;
 }
 
+/** The offer. Six lines of work one retainer covers; every concept lists these. */
 export const SERVICES: Service[] = [
   {
-    title: "Web Design & Development",
+    title: "Search",
     description:
-      "Responsive, accessible websites built with modern standards. From corporate sites to complex web applications — crafted for every user.",
-    icon: Globe,
+      "Technical fixes, product and category pages that rank, and the long tail your competitors ignore, in Shopify, WooCommerce, Lightspeed Retail and Lightspeed eCom.",
+    icon: Search,
   },
   {
-    title: "Custom Application Development",
+    title: "Content",
     description:
-      "Full-stack applications tailored to your business logic. Database design, API development, and scalable architectures.",
-    icon: Code2,
+      "Product copy, guides and posts written in your voice and published every week, built to be cited by AI answer engines as well as read by people.",
+    icon: PenLine,
   },
   {
-    title: "Ecommerce Solutions",
+    title: "Email",
     description:
-      "Online stores that convert. Accessible shopping experiences, payment integration, and inventory management systems.",
-    icon: ShoppingCart,
+      "Klaviyo and Mailchimp flows and campaigns that earn their keep, drafted for you and approved by a person before anything sends.",
+    icon: Mail,
   },
   {
-    title: "Internet Marketing",
+    title: "Paid",
     description:
-      "Organic SEO, content strategy, and inbound marketing that drives qualified traffic. Data-driven campaigns that deliver ROI.",
+      "Google Ads built around the terms that convert, watched weekly, and cut the day they stop working. You pay the media cost directly.",
     icon: Megaphone,
   },
   {
-    title: "Accessibility Consulting",
+    title: "AI-Search Visibility",
     description:
-      "WCAG 2.2 AAA audits, Section 508 compliance, remediation roadmaps. Making the web usable for everyone — it's in our name.",
-    icon: Accessibility,
+      "Getting your brand cited inside the answers from ChatGPT, Perplexity and Google AI Overviews, measured as citations and mentions, not just rankings.",
+    icon: Sparkles,
   },
   {
-    title: "AI & Agentic Development",
+    title: "Ecommerce Sites",
     description:
-      "Leveraging 30+ years of engineering expertise with cutting-edge agentic AI. Autonomous coding workflows that accelerate delivery.",
-    icon: Bot,
+      "Storefronts and landing pages built and maintained on Shopify, WooCommerce and Lightspeed: fast, accessible and ready to convert.",
+    icon: Store,
   },
 ];
 
@@ -219,7 +220,6 @@ export const STATS = [
 /** The technology the agency sells. Named, never explained: outcomes only. */
 export const EDGE = {
   name: "The Edge",
-  descriptor: "our content and growth platform",
 } as const;
 
 /** Commerce platforms the work plugs into. Order is the order we say them. */

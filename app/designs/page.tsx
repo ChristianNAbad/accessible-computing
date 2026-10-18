@@ -10,7 +10,7 @@ const CONCEPTS = [
   {
     href: "/designs/editorial",
     name: "The Editorial",
-    thesis: "Accessibility as craft",
+    thesis: "Marketing as craft",
     description:
       "Ink on paper at AAA contrast. A characterful display serif, magazine rules and ledgers, focus states celebrated as a design feature. Reads like thirty years of craftsmanship.",
     swatches: ["#f7f1e5", "#1f1a12", "#7a2116"],

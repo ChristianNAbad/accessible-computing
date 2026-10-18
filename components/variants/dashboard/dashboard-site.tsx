@@ -204,7 +204,7 @@ export function DashboardSite() {
                 {[...PLATFORMS, ...EMAIL_PLATFORMS].map((platform) => (
                   <li
                     key={platform}
-                    className="rounded-full bg-muted px-2.5 py-0.5 text-[0.7rem] font-semibold text-foreground"
+                    className="rounded-full bg-muted px-2.5 py-0.5 text-xs font-semibold text-foreground"
                   >
                     {platform}
                   </li>

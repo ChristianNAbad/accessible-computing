@@ -82,7 +82,7 @@ const COMPARE = [
 const FAQ = [
   {
     q: "What does an outsourced marketing department actually do?",
-    a: "It does the work an in-house marketing team would do, without the payroll. For our clients that means product and blog content, search optimization, Klaviyo email campaigns and flows, Google Ads management, and getting the brand cited in AI answer engines. One retainer, one account manager, one monthly report.",
+    a: "It does the work an in-house marketing team would do, without the payroll. For our clients that means product and blog content, search optimization, Klaviyo and Mailchimp email campaigns and flows, Google Ads management, and getting the brand cited in AI answer engines. One retainer, one account manager, one monthly report.",
   },
   {
     q: "Who will I actually be working with?",
@@ -269,8 +269,6 @@ export function AnswerSite() {
                 visibility. One dedicated account manager, one plan, one monthly
                 report in plain language. We take one client per product category.
               </p>
-              <p className="mt-3 text-base leading-relaxed text-muted-foreground">{MESSAGING.fit}</p>
-              <p className="mt-3 text-base leading-relaxed text-muted-foreground">{MESSAGING.platforms}</p>
             </div>
           </ScrollReveal>
         </section>

@@ -131,7 +131,7 @@ export function TerminalSite() {
                     {MESSAGING.positioning}
                   </p>
                   <p className="tm-mono mt-5 text-sm text-accent">
-                    # powered by The Edge
+                    <span aria-hidden="true"># </span>powered by The Edge
                   </p>
                   <p className="mt-2 max-w-xl text-base leading-relaxed text-muted-foreground">
                     {MESSAGING.edge}
