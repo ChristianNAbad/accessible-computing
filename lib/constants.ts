@@ -205,18 +205,10 @@ export const MILESTONES: Milestone[] = [
   },
 ];
 
-/**
- * Commercial terms (decided 2026-09-27). INTERNAL: they describe the client we
- * want, and no concept renders them. The voice-consistency test fails if a
- * price or term reaches a page. Discussed on the first call instead.
- */
-export const TERMS = {
-  monthlyUsd: 2000,
-  setupFeeUsd: 2000,
-  termMonths: 12,
-  noticeDays: 60,
-  outAfterMonths: 3,
-} as const;
+/* Commercial terms (base retainer, commitment, exit) are internal and live in
+   the business plan, not in this file: this module is imported by client
+   components and ships in the browser bundle. The voice-consistency test
+   fails if a price or term reaches a page. */
 
 export const STATS = [
   { value: 30, suffix: "+", label: "Years Building for the Web" },
