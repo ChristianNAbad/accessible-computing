@@ -19,7 +19,11 @@ jobs:
       - run: npm run type-check
       - run: npm run lint
       - run: npm test
-      - run: npm run build
+      # next/font fetches Google Fonts CSS at build time and, a few times a
+      # month, gets a font-file URL it cannot parse (loader.js null read).
+      # The twin run on the same commit passes, so one retry is enough.
+      - name: Build (one retry for the next/font fetch flake)
+        run: npm run build || (echo "::warning::next/font fetch flake, retrying build once" && npm run build)
 
   auto-pr:
     needs: build-and-test
