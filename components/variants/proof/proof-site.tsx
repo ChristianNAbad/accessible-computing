@@ -13,9 +13,12 @@ import {
   MILESTONES,
   TESTIMONIALS,
   STATS,
+  MESSAGING,
+  PLATFORMS,
+  EMAIL_PLATFORMS,
 } from "@/lib/constants";
 
-const PLATFORMS = ["Klaviyo", "Shopify", "WooCommerce", "Google Ads"];
+const ALL_PLATFORMS = [...PLATFORMS, ...EMAIL_PLATFORMS, "Google Ads"];
 
 const TOOLS = [
   {
@@ -35,7 +38,7 @@ const TOOLS = [
 const PROMISES = [
   { title: "One client per category", body: "Your account manager never works for a competitor of yours." },
   { title: "A person reviews everything", body: "Nothing ships to your site, your list or your ad account without a human sign-off." },
-  { title: "Sixty-day out after month three", body: "Twelve-month terms, with a door." },
+  { title: "Exit terms you see before you sign", body: MESSAGING.terms },
 ];
 
 export function ProofSite() {
@@ -95,16 +98,16 @@ export function ProofSite() {
           <motion.div className="relative mx-auto grid max-w-7xl gap-12 lg:grid-cols-12 lg:items-center" variants={container} initial="hidden" animate="show">
             <div className="lg:col-span-7">
               <motion.p variants={item} className="text-xs font-extrabold uppercase tracking-[0.2em] text-accent">
-                A small marketing agency for brands that sell online
+                {MESSAGING.eyebrow}
               </motion.p>
               <motion.h1 id="hero-heading" variants={item} className="pf-display mt-5 text-5xl font-bold leading-[1.02] sm:text-6xl lg:text-7xl">
                 Your own marketing team, <span className="text-primary">one account manager</span> away.
               </motion.h1>
               <motion.p variants={item} className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
-                Content, search, email, ads and AI-search visibility on one
-                retainer. Every account gets a dedicated account manager who is
-                a working marketing expert, backed by a small team of
-                specialists and an engineering-led founder.
+                {MESSAGING.positioning}
+              </motion.p>
+              <motion.p variants={item} className="mt-4 max-w-xl text-base leading-relaxed text-muted-foreground">
+                {MESSAGING.edge}
               </motion.p>
               <motion.div variants={item} className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <a href="#contact" className="inline-flex h-12 items-center justify-center rounded-lg bg-accent px-7 text-sm font-bold text-background transition-opacity hover:opacity-90">
@@ -119,7 +122,7 @@ export function ProofSite() {
                   Platforms we work in
                 </p>
                 <ul className="mt-2 flex flex-wrap gap-2" aria-labelledby="pf-platforms-label">
-                  {PLATFORMS.map((c) => (
+                  {ALL_PLATFORMS.map((c) => (
                     <li key={c} className="pf-chip">{c}</li>
                   ))}
                 </ul>
@@ -236,15 +239,10 @@ export function ProofSite() {
               <p className="text-xs font-extrabold uppercase tracking-[0.2em] text-accent">Who you work with</p>
               <h2 id="about-heading" className="pf-display mt-3 text-4xl font-bold sm:text-5xl">Small on purpose.</h2>
               <div className="mt-6 space-y-5 text-lg leading-relaxed text-muted-foreground">
-                <p>
-                  <strong className="text-foreground">Your account manager</strong> is a working marketing expert who owns your plan, reviews every deliverable before it ships, and writes your monthly report.
-                </p>
-                <p>
-                  <strong className="text-foreground">The team</strong> behind them covers content, search, email and paid. We keep the client list short and take one client per product category.
-                </p>
-                <p>
-                  <strong className="text-foreground">The founder</strong>, Christian N. Abad, is a thirty-year engineer and the Founder and CEO of CannaBuddy and Purely Found. Both brands run on the same playbook your account gets.
-                </p>
+                <p>{MESSAGING.manager}</p>
+                <p>{MESSAGING.team}</p>
+                <p>{MESSAGING.founder}</p>
+                <p className="text-foreground">{MESSAGING.fit}</p>
               </div>
               <ul className="mt-8 grid gap-4 sm:grid-cols-3" role="list">
                 {PROMISES.map((p) => (
@@ -303,12 +301,8 @@ export function ProofSite() {
             <ScrollReveal direction="left" className="lg:col-span-5">
               <p className="text-xs font-extrabold uppercase tracking-[0.2em] text-accent">Free audit, no obligation</p>
               <h2 id="contact-heading" className="pf-display mt-3 text-4xl font-bold sm:text-5xl">Start with the audit.</h2>
-              <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
-                Send us your site. Your account manager comes back with your
-                search gaps, what your email list could be earning, and whether
-                the AI answer engines mention you at all. No sales sequence
-                attached.
-              </p>
+              <p className="mt-5 text-lg leading-relaxed text-muted-foreground">{MESSAGING.audit}</p>
+              <p className="mt-3 text-base leading-relaxed text-muted-foreground">{MESSAGING.platforms}</p>
               <p className="mt-8 text-sm text-muted-foreground">
                 Prefer to talk?{" "}
                 <a href={`tel:${COMPANY.phone.replace(/[^\d+]/g, "")}`} className="font-extrabold text-primary">
@@ -388,9 +382,7 @@ function ProofAuditForm() {
         {status === "sending" ? "Sending…" : "Get my free audit"}
       </button>
       {status === "sent" && (
-        <p className="text-sm font-extrabold text-primary" role="status">
-          Thanks. Your account manager will send the audit within two business days.
-        </p>
+        <p className="text-sm font-extrabold text-primary" role="status">{MESSAGING.auditSent}</p>
       )}
       {status === "error" && (
         <p className="text-sm font-extrabold text-accent" role="alert">

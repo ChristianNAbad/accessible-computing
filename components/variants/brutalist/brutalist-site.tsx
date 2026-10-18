@@ -13,6 +13,9 @@ import {
   MILESTONES,
   TESTIMONIALS,
   STATS,
+  MESSAGING,
+  PLATFORMS,
+  EMAIL_PLATFORMS,
 } from "@/lib/constants";
 
 const MARQUEE_ITEMS = [
@@ -109,26 +112,41 @@ export function BrutalistSite() {
               variants={item}
               className="br-display mt-8 text-[15vw] uppercase leading-[0.9] tracking-tight sm:text-7xl md:text-8xl lg:text-[7.5rem]"
             >
-              Making
+              Making brands{" "}
               <br />
-              the web
+              sell{" "}
               <br />
-              work for{" "}
-              <span className="br-accent-block inline-block px-3">
-                everyone
-              </span>
-              <span aria-hidden="true">*</span>
+              <span className="br-accent-block inline-block px-3">more</span>
             </motion.h1>
 
             <motion.p
               variants={item}
               className="mt-6 max-w-xl text-base font-medium leading-relaxed"
             >
-              <span aria-hidden="true">*</span>Yes, everyone. It&apos;s in the
-              name. Marketing for brands that sell online: content, search,
-              email, paid. One dedicated account manager runs your account.
-              Zero decoration, all structure.
+              {MESSAGING.positioning}
             </motion.p>
+
+            <motion.p
+              variants={item}
+              className="mt-4 max-w-xl text-base font-medium leading-relaxed"
+            >
+              {MESSAGING.edge}
+            </motion.p>
+
+            <motion.ul
+              variants={item}
+              className="mt-6 flex flex-wrap gap-2"
+              aria-label="Platforms we work in"
+            >
+              {[...PLATFORMS, ...EMAIL_PLATFORMS].map((platform) => (
+                <li
+                  key={platform}
+                  className="border-2 border-foreground px-2 py-0.5 text-xs font-bold uppercase tracking-[0.1em]"
+                >
+                  {platform}
+                </li>
+              ))}
+            </motion.ul>
 
             <motion.div variants={item} className="mt-10 flex flex-wrap gap-5">
               <a
@@ -259,35 +277,10 @@ export function BrutalistSite() {
               <ScrollReveal direction="left">
                 <div className="br-shadow border-3 border-foreground bg-card p-8">
                   <div className="space-y-5 text-base font-medium leading-relaxed">
-                    <p>
-                      Founded in 2005 by Christian N. Abad on one conviction:{" "}
-                      <span className="br-mark">
-                        the web should work for everyone.
-                      </span>
-                    </p>
-                    <p>
-                      How it runs:{" "}
-                      <span className="br-mark">
-                        one dedicated account manager
-                      </span>{" "}
-                      per account. A working marketing expert. Owns the plan,
-                      reviews everything before it ships, writes the monthly
-                      report.
-                    </p>
-                    <p>
-                      Behind them, a small team: content, search, email, paid.{" "}
-                      <span className="br-mark">One client per product category.</span>{" "}
-                      Nobody here works for your competitor.
-                    </p>
-                    <p>
-                      The founder: thirty-year engineer. Bank of America VP,{" "}
-                      <span className="br-mark">5,000+ pages</span> brought to
-                      WCAG and Section 508. DHS/USCIS, US Navy. Now Founder and
-                      CEO of CannaBuddy and Purely Found, both run on the same
-                      playbook and shipped with{" "}
-                      <span className="br-mark">agentic AI development</span>{" "}
-                      in Claude Code.
-                    </p>
+                    <p>{MESSAGING.manager}</p>
+                    <p>{MESSAGING.team}</p>
+                    <p>{MESSAGING.founder}</p>
+                    <p className="br-mark inline-block">{MESSAGING.fit}</p>
                   </div>
                   <div className="mt-8 flex flex-wrap gap-4">
                     <a
@@ -374,7 +367,7 @@ export function BrutalistSite() {
                       {project.tags.map((tag) => (
                         <span
                           key={tag}
-                          className="border-2 border-foreground px-2 py-0.5 text-[0.65rem] font-bold uppercase tracking-[0.1em]"
+                          className="border-2 border-foreground px-2 py-0.5 text-xs font-bold uppercase tracking-[0.1em]"
                         >
                           {tag}
                         </span>
@@ -446,8 +439,7 @@ export function BrutalistSite() {
                 <span className="br-accent-block inline-block px-2">us</span>
               </h2>
               <p className="mt-4 max-w-xl text-base font-medium">
-                A free audit of your store, reviewed by your account manager
-                before it is sent. One manager, one team, no handoffs.
+                {MESSAGING.audit}
               </p>
             </ScrollReveal>
 
@@ -640,7 +632,8 @@ function BrutalistContactForm() {
 
       {status === "sent" && (
         <p className="br-display text-sm uppercase" role="status">
-          ✓ Sent. Your account manager will be in touch.
+          <span aria-hidden="true">✓ </span>
+          {MESSAGING.auditSent}
         </p>
       )}
       {status === "error" && (

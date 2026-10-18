@@ -13,12 +13,15 @@ import {
   MILESTONES,
   TESTIMONIALS,
   STATS,
+  MESSAGING,
+  PLATFORMS,
+  EMAIL_PLATFORMS,
 } from "@/lib/constants";
 
 /* Decorative fake commit hashes for the git-log timeline */
 const HASHES = ["f3a8c21", "7b2d94e", "c0a5e12", "9d4f508", "e8b2c67", "a11ce55"];
 
-const STAT_VARS = ["YEARS_EXPERIENCE", "PAGES_MADE_ACCESSIBLE", "ENTERPRISE_CLIENTS"];
+const STAT_VARS = ["YEARS_BUILDING_FOR_WEB", "BRANDS_ON_THE_EDGE", "ENTERPRISE_CLIENTS"];
 
 export function TerminalSite() {
   const prefersReducedMotion = useReducedMotion();
@@ -110,8 +113,7 @@ export function TerminalSite() {
                     <span className="text-primary">$</span> whoami
                   </p>
                   <p className="mt-1 text-muted-foreground">
-                    Your dedicated account manager, plus a small team: content,
-                    search, email, paid. Founded by Christian N. Abad.
+                    {MESSAGING.eyebrow}
                   </p>
                 </motion.div>
 
@@ -123,14 +125,20 @@ export function TerminalSite() {
                     id="hero-heading"
                     className="tm-mono tm-glow mt-3 text-3xl font-bold leading-tight tracking-tight text-primary sm:text-4xl md:text-5xl"
                   >
-                    The web should
-                    <br />
-                    work for everyone.
+                    Marketing that ships every week.
                   </h1>
                   <p className="mt-4 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-                    Marketing for brands that sell online: content, search,
-                    email and paid. A dedicated account manager, a working
-                    marketing expert, runs every account.
+                    {MESSAGING.positioning}
+                  </p>
+                  <p className="tm-mono mt-5 text-sm text-accent">
+                    <span aria-hidden="true"># </span>powered by The Edge
+                  </p>
+                  <p className="mt-2 max-w-xl text-base leading-relaxed text-muted-foreground">
+                    {MESSAGING.edge}
+                  </p>
+                  <p className="tm-mono mt-4 max-w-xl text-sm text-muted-foreground">
+                    <span className="text-accent">platforms:</span>{" "}
+                    {[...PLATFORMS, ...EMAIL_PLATFORMS].join(", ")}
                   </p>
                 </motion.div>
 
@@ -254,37 +262,11 @@ export function TerminalSite() {
                   <span aria-hidden="true"># </span>The story
                 </h2>
                 <div className="mt-6 space-y-4 text-base leading-relaxed text-muted-foreground">
-                  <p>
-                    Founded in 2005 by Christian N. Abad on a simple
-                    conviction:{" "}
-                    <strong className="text-foreground">
-                      the web should work for everyone.
-                    </strong>{" "}
-                    Today every account has a{" "}
-                    <strong className="text-foreground">
-                      dedicated account manager
-                    </strong>
-                    : a working marketing expert who owns the plan, reviews
-                    every deliverable, and writes the monthly report.
-                  </p>
-                  <p>
-                    Behind the manager is a small team covering content,
-                    search, email and paid. One client per product category,
-                    so nobody on your account is also working for your
-                    competitor.
-                  </p>
-                  <p>
-                    The founder is a thirty-year engineer: C on Solaris in
-                    1995, VP of web accessibility for{" "}
-                    <strong className="text-foreground">5,000+ pages</strong>{" "}
-                    at Bank of America, ADA-compliant systems for DHS/USCIS and
-                    the US Navy. He is Founder and CEO of CannaBuddy and Purely
-                    Found, both run on the same playbook, and the team ships
-                    with{" "}
-                    <strong className="text-foreground">
-                      agentic AI workflows in Claude Code
-                    </strong>{" "}
-                    plus a production fleet of autonomous bots on Railway.
+                  <p>{MESSAGING.manager}</p>
+                  <p>{MESSAGING.team}</p>
+                  <p>{MESSAGING.founder}</p>
+                  <p className="tm-mono text-sm text-foreground">
+                    {MESSAGING.fit}
                   </p>
                 </div>
                 <div className="tm-mono mt-8 flex flex-wrap gap-4 text-sm">
@@ -443,8 +425,7 @@ export function TerminalSite() {
                 Connection established
               </h2>
               <p className="mt-4 max-w-xl text-base leading-relaxed text-muted-foreground">
-                Describe your store and the number that is stuck. A free audit
-                comes back, reviewed by your account manager before it is sent.
+                {MESSAGING.audit}
               </p>
             </ScrollReveal>
 
@@ -655,7 +636,8 @@ function TerminalContactForm() {
 
       {status === "sent" && (
         <p className="tm-mono text-sm font-bold text-primary" role="status">
-          [✓] message delivered. your account manager will reply.
+          <span aria-hidden="true">[✓] </span>
+          {MESSAGING.auditSent}
         </p>
       )}
       {status === "error" && (

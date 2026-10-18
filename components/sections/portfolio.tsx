@@ -27,8 +27,8 @@ export function Portfolio() {
               Client <span className="gradient-text">Portfolio</span>
             </h2>
             <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
-              Enterprise to startup. Government to ecommerce. Every project
-              built with accessibility at its core.
+              Enterprise to startup. Government to ecommerce. Every account
+              run by a dedicated manager and a small team.
             </p>
           </div>
         </ScrollReveal>

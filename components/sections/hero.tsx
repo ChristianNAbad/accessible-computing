@@ -3,7 +3,7 @@
 import { motion, useReducedMotion } from "framer-motion";
 import { ArrowDown, Sparkles } from "lucide-react";
 import { AnimatedCounter } from "@/components/ui/animated-counter";
-import { COMPANY, STATS } from "@/lib/constants";
+import { MESSAGING, STATS } from "@/lib/constants";
 
 export function Hero() {
   const prefersReducedMotion = useReducedMotion();
@@ -53,7 +53,7 @@ export function Hero() {
         <motion.div variants={item} className="mb-8">
           <span className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/5 px-4 py-2 text-sm font-medium text-primary">
             <Sparkles className="h-4 w-4" aria-hidden="true" />
-            30+ Years of Web Excellence
+            {MESSAGING.eyebrow}
           </span>
         </motion.div>
 
@@ -63,10 +63,9 @@ export function Hero() {
           variants={item}
           className="text-4xl font-black leading-[1.1] tracking-tight sm:text-5xl md:text-6xl lg:text-7xl"
         >
-          We Built Our Name
+          Marketing That{" "}
           <br />
-          Making You{" "}
-          <span className="gradient-text">Accessible</span>
+          <span className="gradient-text">Shows Its Work</span>
         </motion.h1>
 
         {/* Subtext */}
@@ -74,9 +73,21 @@ export function Hero() {
           variants={item}
           className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground md:text-xl"
         >
-          {COMPANY.name} is a small marketing agency for brands that sell
-          online: content, search, email and paid, with a dedicated account
-          manager running every account.
+          {MESSAGING.positioning}
+        </motion.p>
+
+        <motion.p
+          variants={item}
+          className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg"
+        >
+          {MESSAGING.edge}
+        </motion.p>
+
+        <motion.p
+          variants={item}
+          className="mx-auto mt-4 max-w-2xl text-sm font-medium text-foreground"
+        >
+          {MESSAGING.fit}
         </motion.p>
 
         {/* CTAs */}

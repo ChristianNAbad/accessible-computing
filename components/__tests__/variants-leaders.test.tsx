@@ -78,11 +78,11 @@ describe.each(CASES)("$name design concept", ({ Site, heading, submit, messageLa
   });
 });
 
-describe("Answer pricing", () => {
-  it("renders the retainer from TERMS with a currency sign", () => {
+describe("Answer comparison table", () => {
+  it("keeps the retainer unpriced and points to the first call", () => {
     render(<AnswerSite />);
-    expect(screen.getAllByText(/\$2,000 plus your ad spend/).length).toBe(1);
-    expect(screen.getAllByText(/12 months at \$2,000 per month/).length).toBe(1);
+    expect(screen.getByText(/A monthly retainer sized to the plan/)).toBeInTheDocument();
+    expect(document.body.textContent).not.toMatch(/\$\s?2,?000/);
   });
 });
 

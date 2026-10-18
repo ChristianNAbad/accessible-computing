@@ -15,9 +15,11 @@ describe("AboutStory", () => {
     expect(screen.getAllByText(/Bank of America/i).length).toBeGreaterThanOrEqual(1);
   });
 
-  it("mentions agentic AI development", () => {
+  it("says both brands run on The Edge", () => {
     render(<AboutStory />);
-    expect(screen.getByText(/agentic AI development/i)).toBeInTheDocument();
+    // The shared founder sentence and the CannaBuddy link line both say it.
+    expect(screen.getAllByText(/run on The Edge/i).length).toBeGreaterThanOrEqual(1);
+    expect(screen.getByRole("link", { name: /CannaBuddy.com/i })).toHaveAttribute("href", "https://cannabuddy.com");
   });
 
   it("mentions CannaBuddy", () => {

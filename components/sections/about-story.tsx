@@ -2,7 +2,7 @@
 
 import { ExternalLink } from "lucide-react";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
-import { MILESTONES, COMPANY } from "@/lib/constants";
+import { MILESTONES, COMPANY, MESSAGING } from "@/lib/constants";
 
 export function AboutStory() {
   return (
@@ -27,37 +27,20 @@ export function AboutStory() {
                 The <span className="gradient-text">Story</span>
               </h2>
               <div className="mt-8 space-y-4 text-base leading-relaxed text-muted-foreground">
+                <p>{MESSAGING.manager}</p>
+                <p>{MESSAGING.team}</p>
+                <p>{MESSAGING.founder}</p>
                 <p>
-                  Every Accessible Computing account has a dedicated account
-                  manager: a working marketing expert who owns the
-                  plan, reviews every deliverable before it ships, and writes
-                  the monthly report in plain language.
-                </p>
-                <p>
-                  Behind that manager is a small team covering content, search,
-                  email and paid. We take one client per product category, so
-                  nobody on your account is also working for your competitor.
-                </p>
-                <p>
-                  The founder, Christian N. Abad, started the company in 2005
-                  on a simple conviction: the web should work for everyone. His
-                  degree from Appalachian State pairs Psychology with Computer
-                  Science, and at Bank of America he managed accessibility
-                  compliance for over 5,000 customer-facing pages as VP,
-                  establishing enterprise-wide WCAG and Section 508 standards.
-                </p>
-                <p>
-                  He brings that same pioneering spirit to{" "}
-                  <strong>agentic AI development</strong>. Using Claude Code and
-                  autonomous coding workflows, the team ships what once took
-                  entire departments, the same engine behind{" "}
-                  <strong>CannaBuddy.com</strong> and Purely Found. Christian
-                  is Founder and CEO of CannaBuddy and Purely Found, and both
-                  brands run on the playbook your account manager uses.
-                </p>
-                <p>
-                  Three decades. Countless technologies. One constant: making
-                  technology accessible, performant, and built to last.
+                  See both brands live at{" "}
+                  <a
+                    href="https://cannabuddy.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-semibold text-foreground underline decoration-primary underline-offset-4 transition-colors hover:text-primary"
+                  >
+                    CannaBuddy.com
+                  </a>
+                  .
                 </p>
               </div>
               <div className="mt-8 flex flex-wrap gap-4">

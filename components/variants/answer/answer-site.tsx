@@ -13,10 +13,10 @@ import {
   MILESTONES,
   TESTIMONIALS,
   STATS,
-  TERMS,
+  MESSAGING,
+  PLATFORMS,
+  EMAIL_PLATFORMS,
 } from "@/lib/constants";
-
-const usd = (n: number) => "$" + n.toLocaleString("en-US");
 
 const STEPS = [
   {
@@ -61,7 +61,7 @@ const COMPARE = [
     inhouse: "$6,000 to $9,000 with benefits",
     freelancer: "$1,500 to $4,000 per channel",
     typical: "$3,000 to $10,000 plus ad management fees",
-    us: `${usd(TERMS.monthlyUsd)} plus your ad spend`,
+    us: "A monthly retainer sized to the plan, plus your own ad spend",
   },
   {
     factor: "Reporting",
@@ -82,7 +82,7 @@ const COMPARE = [
 const FAQ = [
   {
     q: "What does an outsourced marketing department actually do?",
-    a: "It does the work an in-house marketing team would do, without the payroll. For our clients that means product and blog content, search optimization, Klaviyo email campaigns and flows, Google Ads management, and getting the brand cited in AI answer engines. One retainer, one account manager, one monthly report.",
+    a: "It does the work an in-house marketing team would do, without the payroll. For our clients that means product and blog content, search optimization, Klaviyo and Mailchimp email campaigns and flows, Google Ads management, and getting the brand cited in AI answer engines. One retainer, one account manager, one monthly report.",
   },
   {
     q: "Who will I actually be working with?",
@@ -98,7 +98,7 @@ const FAQ = [
   },
   {
     q: "What are the terms?",
-    a: `${TERMS.termMonths} months at ${usd(TERMS.monthlyUsd)} per month plus your own ad spend. The ${usd(TERMS.setupFeeUsd)} setup fee is waived with the term. There is a ${TERMS.noticeDays}-day out after month ${TERMS.outAfterMonths}, and we take one client per product category so you never share your manager with a competitor.`,
+    a: MESSAGING.terms + " We take one client per product category, so you never share your manager with a competitor.",
   },
 ];
 
@@ -179,7 +179,7 @@ export function AnswerSite() {
           >
             <div className="lg:col-span-7">
               <motion.p variants={item} className="an-hero-accent text-xs font-semibold uppercase tracking-[0.2em]">
-                Outsourced marketing department
+                {MESSAGING.eyebrow}
               </motion.p>
               <motion.h1
                 id="hero-heading"
@@ -189,10 +189,10 @@ export function AnswerSite() {
                 Be the answer your customers get.
               </motion.h1>
               <motion.p variants={item} className="an-hero-muted mt-6 max-w-xl text-lg leading-relaxed">
-                A small agency for brands that sell online. Search, content,
-                email, ads and AI-search visibility, run by a dedicated account
-                manager who is a working marketing expert, backed by an
-                engineering-led team.
+                {MESSAGING.positioning}
+              </motion.p>
+              <motion.p variants={item} className="an-hero-muted mt-4 max-w-xl text-base leading-relaxed">
+                {MESSAGING.edge}
               </motion.p>
               <motion.div variants={item} className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <a
@@ -266,9 +266,8 @@ export function AnswerSite() {
               <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
                 A small team that does what an in-house marketing team would do,
                 on a retainer: content, search, email, paid and AI-search
-                visibility. You get one dedicated account manager who is a
-                marketing expert, one plan, and one monthly report in plain
-                language. We take one client per product category.
+                visibility. One dedicated account manager, one plan, one monthly
+                report in plain language. We take one client per product category.
               </p>
             </div>
           </ScrollReveal>
@@ -360,7 +359,7 @@ export function AnswerSite() {
               </table>
             </div>
             <p className="mt-4 text-xs text-muted-foreground">
-              Competitor cost ranges are typical US figures for comparison, not quotes. Our column is our standard retainer; terms are in the questions below.
+              Competitor cost ranges are typical US figures for comparison, not quotes. Our retainer is sized to the plan; we walk through it on the first call.
             </p>
           </div>
         </section>
@@ -374,24 +373,10 @@ export function AnswerSite() {
                 A small team, on purpose.
               </h2>
               <div className="mt-6 space-y-5 text-lg leading-relaxed text-muted-foreground">
-                <p>
-                  <strong className="text-foreground">Your account manager</strong> is a
-                  working marketing expert, not a coordinator. They own your plan,
-                  review every piece before it ships, and write your monthly
-                  report. You will know their name by the end of the first call.
-                </p>
-                <p>
-                  <strong className="text-foreground">The team</strong> behind them covers
-                  content, search, email and paid. We keep the client list short
-                  and take one client per product category, so your manager
-                  knows your business and never works for your competitor.
-                </p>
-                <p>
-                  <strong className="text-foreground">The founder</strong>, Christian N.
-                  Abad, is a thirty-year engineer who also runs two consumer
-                  brands, CannaBuddy and Purely Found, on the same playbook. The
-                  processes here are the ones those brands use first.
-                </p>
+                <p>{MESSAGING.manager}</p>
+                <p>{MESSAGING.team}</p>
+                <p>{MESSAGING.founder}</p>
+                <p className="text-foreground">{MESSAGING.fit}</p>
               </div>
             </ScrollReveal>
             <ScrollReveal direction="right" className="lg:col-span-5">
@@ -481,12 +466,12 @@ export function AnswerSite() {
               <h2 id="contact-heading" className="an-display mt-3 text-4xl font-bold sm:text-5xl">
                 Find out what the answer engines say about you.
               </h2>
-              <p className="mt-5 text-lg leading-relaxed text-muted-foreground">
-                Send us your site. You get your search gaps, your email revenue
-                ceiling, and where ChatGPT, Perplexity and Google AI Overviews
-                mention you today. An account manager reviews it before it is
-                sent.
-              </p>
+              <p className="mt-5 text-lg leading-relaxed text-muted-foreground">{MESSAGING.audit}</p>
+              <ul className="mt-6 flex flex-wrap gap-2" aria-label="Platforms we work in">
+                {[...PLATFORMS, ...EMAIL_PLATFORMS].map((p) => (
+                  <li key={p} className="rounded-full border border-border bg-card px-3 py-1 text-xs font-semibold">{p}</li>
+                ))}
+              </ul>
               <p className="mt-8 text-sm text-muted-foreground">
                 <a href={`tel:${COMPANY.phone.replace(/[^\d+]/g, "")}`} className="font-semibold text-foreground hover:text-primary">
                   {COMPANY.phone}
@@ -564,9 +549,7 @@ function AnswerAuditForm() {
         {status === "sending" ? "Sending…" : "Send me the audit"}
       </button>
       {status === "sent" && (
-        <p className="text-sm font-semibold text-primary" role="status">
-          Received. Your account manager will send the audit within two business days.
-        </p>
+        <p className="text-sm font-semibold text-primary" role="status">{MESSAGING.auditSent}</p>
       )}
       {status === "error" && (
         <p className="text-sm font-semibold text-accent" role="alert">

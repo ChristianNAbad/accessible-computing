@@ -12,12 +12,12 @@ describe("Services", () => {
 
   it("renders all 6 service cards", () => {
     render(<Services />);
-    expect(screen.getByText("Web Design & Development")).toBeInTheDocument();
-    expect(screen.getByText("Custom Application Development")).toBeInTheDocument();
-    expect(screen.getByText("Ecommerce Solutions")).toBeInTheDocument();
-    expect(screen.getByText("Internet Marketing")).toBeInTheDocument();
-    expect(screen.getByText("Accessibility Consulting")).toBeInTheDocument();
-    expect(screen.getByText("AI & Agentic Development")).toBeInTheDocument();
+    expect(screen.getByText("Search")).toBeInTheDocument();
+    expect(screen.getByText("Content")).toBeInTheDocument();
+    expect(screen.getByText("Email")).toBeInTheDocument();
+    expect(screen.getByText("Paid")).toBeInTheDocument();
+    expect(screen.getByText("AI-Search Visibility")).toBeInTheDocument();
+    expect(screen.getByText("Ecommerce Sites")).toBeInTheDocument();
   });
 
   it("has proper aria-labelledby on section", () => {

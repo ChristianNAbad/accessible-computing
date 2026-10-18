@@ -13,6 +13,7 @@ import {
   MILESTONES,
   TESTIMONIALS,
   STATS,
+  MESSAGING,
 } from "@/lib/constants";
 
 const VALUES = [
@@ -116,7 +117,7 @@ export function EditorialSite() {
               variants={item}
               className="text-center text-xs font-semibold uppercase tracking-[0.3em] text-primary"
             >
-              The Accessibility Issue
+              {MESSAGING.eyebrow}
             </motion.p>
 
             <motion.h2
@@ -124,17 +125,22 @@ export function EditorialSite() {
               variants={item}
               className="ed-display mx-auto mt-6 max-w-4xl text-center text-5xl font-medium leading-[1.05] tracking-tight sm:text-6xl md:text-7xl lg:text-[5.5rem]"
             >
-              The web should work for{" "}
-              <em className="font-semibold italic text-primary">everyone.</em>
+              Marketing, practiced as a{" "}
+              <em className="font-semibold italic text-primary">craft.</em>
             </motion.h2>
 
             <motion.p
               variants={item}
               className="mx-auto mt-8 max-w-2xl text-center text-lg leading-relaxed text-muted-foreground md:text-xl"
             >
-              Content, search, email and paid for brands that sell online.
-              A dedicated account manager, a working marketing expert, owns
-              every account and reads every number.
+              {MESSAGING.positioning}
+            </motion.p>
+
+            <motion.p
+              variants={item}
+              className="mx-auto mt-5 max-w-2xl text-center text-base leading-relaxed text-muted-foreground md:text-lg"
+            >
+              {MESSAGING.edge}
             </motion.p>
 
             <motion.p
@@ -266,28 +272,11 @@ export function EditorialSite() {
               {/* Narrative */}
               <ScrollReveal direction="left" className="lg:col-span-3">
                 <div className="space-y-5 text-lg leading-relaxed text-foreground">
-                  <p className="ed-dropcap">
-                    Every account here has a dedicated account manager: a
-                    working marketing expert who owns the plan, reviews every
-                    piece before it ships, and writes the monthly report in
-                    plain language. One person, reachable, accountable for the
-                    number you hired us to move.
-                  </p>
-                  <p>
-                    Behind that manager is a small team covering content,
-                    search, email and paid. We take one client per product
-                    category, so the people working your account are never
-                    working your competitor&apos;s.
-                  </p>
-                  <p>
-                    The founder, Christian N. Abad, is a thirty-year engineer
-                    who led web accessibility for more than 5,000 pages at
-                    Bank of America and is Founder and CEO of{" "}
-                    <strong>CannaBuddy</strong> and{" "}
-                    <strong>Purely Found</strong>. Both brands run on the same
-                    playbook your account manager uses, and the team ships it
-                    with the <strong>agentic AI development</strong> practice
-                    he built the company around.
+                  <p className="ed-dropcap">{MESSAGING.manager}</p>
+                  <p>{MESSAGING.team}</p>
+                  <p>{MESSAGING.founder}</p>
+                  <p className="text-base text-muted-foreground">
+                    {MESSAGING.fit}
                   </p>
                 </div>
 
@@ -459,13 +448,18 @@ export function EditorialSite() {
               <ScrollReveal direction="right">
                 <div className="space-y-8">
                   <p className="text-lg leading-relaxed text-muted-foreground">
-                    Send us your site and the one number you want to move. We
-                    reply with a free audit of your search gaps, your email
-                    revenue ceiling and how the AI answer engines describe you,
-                    reviewed by your account manager before it is sent.
+                    {MESSAGING.audit}
                   </p>
 
                   <dl className="space-y-4">
+                    <div className="ed-hairline border-b border-border pb-4">
+                      <dt className="text-[0.65rem] font-semibold uppercase tracking-[0.25em] text-muted-foreground">
+                        Platforms
+                      </dt>
+                      <dd className="mt-1 text-base leading-relaxed">
+                        {MESSAGING.platforms}
+                      </dd>
+                    </div>
                     <div className="ed-hairline border-b border-border pb-4">
                       <dt className="text-[0.65rem] font-semibold uppercase tracking-[0.25em] text-muted-foreground">
                         Location
@@ -641,12 +635,12 @@ function EditorialContactForm() {
 
       {status === "sent" && (
         <p className="text-sm font-semibold italic" role="status">
-          Received with thanks. Your account manager will reply shortly.
+          {MESSAGING.auditSent}
         </p>
       )}
       {status === "error" && (
         <p className="text-sm font-semibold italic text-primary" role="alert">
-          Something went astray. Please try again, or ring us directly.
+          Something went astray. Please try again, or call us directly.
         </p>
       )}
     </form>

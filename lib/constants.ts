@@ -1,10 +1,10 @@
 import {
-  Globe,
-  Code2,
-  ShoppingCart,
+  Search,
+  PenLine,
+  Mail,
   Megaphone,
-  Accessibility,
-  Bot,
+  Sparkles,
+  Store,
   type LucideIcon,
 } from "lucide-react";
 
@@ -35,42 +35,43 @@ export interface Service {
   icon: LucideIcon;
 }
 
+/** The offer. Six lines of work one retainer covers; every concept lists these. */
 export const SERVICES: Service[] = [
   {
-    title: "Web Design & Development",
+    title: "Search",
     description:
-      "Responsive, accessible websites built with modern standards. From corporate sites to complex web applications — crafted for every user.",
-    icon: Globe,
+      "Technical fixes, product and category pages that rank, and the long tail your competitors ignore, in Shopify, WooCommerce, Lightspeed Retail and Lightspeed eCom.",
+    icon: Search,
   },
   {
-    title: "Custom Application Development",
+    title: "Content",
     description:
-      "Full-stack applications tailored to your business logic. Database design, API development, and scalable architectures.",
-    icon: Code2,
+      "Product copy, guides and posts written in your voice and published every week, built to be cited by AI answer engines as well as read by people.",
+    icon: PenLine,
   },
   {
-    title: "Ecommerce Solutions",
+    title: "Email",
     description:
-      "Online stores that convert. Accessible shopping experiences, payment integration, and inventory management systems.",
-    icon: ShoppingCart,
+      "Klaviyo and Mailchimp flows and campaigns that earn their keep, drafted for you and approved by a person before anything sends.",
+    icon: Mail,
   },
   {
-    title: "Internet Marketing",
+    title: "Paid",
     description:
-      "Organic SEO, content strategy, and inbound marketing that drives qualified traffic. Data-driven campaigns that deliver ROI.",
+      "Google Ads built around the terms that convert, watched weekly, and cut the day they stop working. You pay the media cost directly.",
     icon: Megaphone,
   },
   {
-    title: "Accessibility Consulting",
+    title: "AI-Search Visibility",
     description:
-      "WCAG 2.2 AAA audits, Section 508 compliance, remediation roadmaps. Making the web usable for everyone — it's in our name.",
-    icon: Accessibility,
+      "Getting your brand cited inside the answers from ChatGPT, Perplexity and Google AI Overviews, measured as citations and mentions, not just rankings.",
+    icon: Sparkles,
   },
   {
-    title: "AI & Agentic Development",
+    title: "Ecommerce Sites",
     description:
-      "Leveraging 30+ years of engineering expertise with cutting-edge agentic AI. Autonomous coding workflows that accelerate delivery.",
-    icon: Bot,
+      "Storefronts and landing pages built and maintained on Shopify, WooCommerce and Lightspeed: fast, accessible and ready to convert.",
+    icon: Store,
   },
 ];
 
@@ -205,20 +206,61 @@ export const MILESTONES: Milestone[] = [
   },
 ];
 
-/** Standard commercial terms (decided 2026-09-27). Every concept reads these. */
-export const TERMS = {
-  monthlyUsd: 2000,
-  setupFeeUsd: 2000,
-  termMonths: 12,
-  noticeDays: 60,
-  outAfterMonths: 3,
-} as const;
+/* Commercial terms (base retainer, commitment, exit) are internal and live in
+   the business plan, not in this file: this module is imported by client
+   components and ships in the browser bundle. The voice-consistency test
+   fails if a price or term reaches a page. */
 
 export const STATS = [
-  { value: 30, suffix: "+", label: "Years Experience" },
-  { value: 5000, suffix: "+", label: "Pages Made Accessible" },
-  { value: 20, suffix: "+", label: "Enterprise Clients" },
+  { value: 30, suffix: "+", label: "Years Building for the Web" },
+  { value: 2, suffix: "", label: "Consumer Brands Run on The Edge" },
+  { value: 20, suffix: "+", label: "Enterprise Clients Served" },
 ] as const;
+
+/** The technology the agency sells. Named, never explained: outcomes only. */
+export const EDGE = {
+  name: "The Edge",
+} as const;
+
+/** Commerce platforms the work plugs into. Order is the order we say them. */
+export const PLATFORMS = [
+  "Shopify",
+  "WooCommerce",
+  "Lightspeed Retail",
+  "Lightspeed eCom",
+] as const;
+
+/** Email platforms we run campaigns and flows in. */
+export const EMAIL_PLATFORMS = ["Klaviyo", "Mailchimp"] as const;
+
+/**
+ * The shared language every design concept renders. Headlines stay per
+ * concept; these sentences do not change between concepts. Agency forward:
+ * the agency and its team lead, The Edge is the named technology behind the
+ * work, and the copy qualifies for established brands without stating a
+ * price or a term.
+ */
+export const MESSAGING = {
+  eyebrow: "A marketing agency for brands that sell online",
+  positioning:
+    "Accessible Computing is a marketing agency for established brands that sell online. Search, content, email, paid and AI-search visibility, delivered by a dedicated account manager who is a working marketing expert and a small team of specialists.",
+  edge:
+    "The work runs on The Edge, our own content and growth platform. We market this site with it too, so what you are reading is evidence of what it produces.",
+  fit: "Built for brands ready to invest in growth every month, not a one-month test.",
+  platforms:
+    "We work in Shopify, WooCommerce, Lightspeed Retail and Lightspeed eCom, with Klaviyo, Mailchimp and other popular email platforms.",
+  manager:
+    "Your account manager is a working marketing expert who owns your plan, reviews every deliverable before it ships, and writes your monthly report.",
+  team:
+    "Behind them is a small team of specialists in content, search, email and paid. We keep the client list short and take one client per product category.",
+  founder:
+    "The founder, Christian N. Abad, is a thirty-year engineer and the Founder and CEO of CannaBuddy and Purely Found. Both brands run on The Edge.",
+  audit:
+    "Send us your site. You get your search gaps, what your email list could be earning, and whether AI answer engines mention you at all. Your account manager reviews it before it is sent.",
+  auditSent: "Received. Your account manager will send your audit within two business days.",
+  terms:
+    "Engagements are long-term plans with a clear exit, agreed up front. We walk through the specifics on the first call.",
+} as const;
 
 export const BLOG_CATEGORIES = [
   "accessibility",

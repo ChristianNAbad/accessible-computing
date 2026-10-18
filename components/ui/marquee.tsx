@@ -2,12 +2,12 @@
 
 export function Marquee() {
   const items = [
-    "ACCESSIBLE",
-    "INCLUSIVE",
-    "PERFORMANT",
-    "COMPLIANT",
-    "RESPONSIVE",
-    "SEMANTIC",
+    "SEARCH",
+    "CONTENT",
+    "EMAIL",
+    "PAID",
+    "AI SEARCH",
+    "ONE ACCOUNT MANAGER",
   ];
 
   const repeated = [...items, ...items, ...items, ...items];
