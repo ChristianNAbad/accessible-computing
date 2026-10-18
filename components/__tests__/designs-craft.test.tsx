@@ -1,7 +1,7 @@
 import { describe, it, expect, vi, afterEach } from "vitest";
 import { render, screen, within, fireEvent, waitFor } from "@testing-library/react";
 import { CraftSite } from "@/components/variants/craft/craft-site";
-import { MESSAGING, NAV_ITEMS, SERVICES } from "@/lib/constants";
+import { MESSAGING, NAV_ITEMS, SERVICES, TESTIMONIALS } from "@/lib/constants";
 
 afterEach(() => {
   vi.unstubAllGlobals();
@@ -81,7 +81,9 @@ describe("The Craft design concept", () => {
     const founder = screen.getByText(MESSAGING.founder);
     // The founder line sits after the last testimonial and before the contact section.
     const figures = document.querySelectorAll("figure");
+    expect(figures).toHaveLength(TESTIMONIALS.length + 1); // the report figure plus one per testimonial
     const lastTestimonial = figures[figures.length - 1];
+    expect(lastTestimonial.querySelector("blockquote")).not.toBeNull();
     const contact = document.getElementById("contact")!;
     expect(lastTestimonial.compareDocumentPosition(founder) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
     expect(founder.compareDocumentPosition(contact) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();

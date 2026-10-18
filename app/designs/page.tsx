@@ -112,7 +112,7 @@ export default function DesignsIndex() {
           including the site as it stands today, three built from the
           structure of the pages that currently rank for our keywords, and
           one synthesis built from the review feedback. Toggle dark mode on each; every palette is tuned for both
-          themes. The four newest lead with the free-audit conversion.
+          themes. Every concept from The Dashboard on leads with the free-audit call to action; The Conversation and The Craft put the audit form itself in the hero.
         </p>
 
         <div className="mt-12 space-y-6">
