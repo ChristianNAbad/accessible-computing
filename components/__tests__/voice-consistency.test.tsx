@@ -34,7 +34,7 @@ function bodyText(container: HTMLElement) {
 // reach a page. The Dashboard's sample tiles ($42.1k) are labeled sample data
 // and are not a price, so the pattern looks for retainer and term language.
 const INTERNAL_NUMBERS =
-  /\$\s?2,?000|\b2,?000\b|two thousand|\$?2k\b|per month|setup fee|12[- ]month|twelve[- ]month|one[- ]year|annual|sixty[- ]day|60[- ]day|month three|month 3\b|three payments|three months|out after|commitment|\bcontracts?\b|notice period/i;
+  /\$\s?2,?000|\b2,?000\b|two thousand|(?<![\d.,$])\$?2k\b|per month|setup fee|12[- ]month|twelve[- ]month|one[- ]year|\bannual\b|sixty[- ]day|60[- ]day|month three|month 3\b|three payments|three months|out after|\bcommitments?\b|\bcontracts?\b|notice period/i;
 
 function count(text: string, needle: string) {
   return text.split(needle).length - 1;

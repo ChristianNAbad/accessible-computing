@@ -31,7 +31,7 @@ export function AboutStory() {
                 <p>{MESSAGING.team}</p>
                 <p>{MESSAGING.founder}</p>
                 <p>
-                  Both brands <strong>run on The Edge</strong>. See it live at{" "}
+                  See both brands live at{" "}
                   <a
                     href="https://cannabuddy.com"
                     target="_blank"

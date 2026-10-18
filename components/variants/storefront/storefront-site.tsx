@@ -121,7 +121,7 @@ export function StorefrontSite() {
               variants={item}
               className="sf-display mt-8 text-[4.2rem] font-black leading-[0.88] sm:text-[6.5rem] lg:text-[9rem]"
             >
-              More orders.
+              More orders.{" "}
               <br />
               <span className="sf-wobble text-primary">Less noise.</span>
             </motion.h1>
